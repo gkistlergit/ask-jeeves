@@ -103,7 +103,7 @@ Load the reference files for each legal area the input touches: `references/insi
   - Open every source you will cite, in fallback-chain order (`references/research-resilience.md`). For Indiana, that means the local 2026 code text, not iga.in.gov.
   - Work in the main thread. Dispatch one subagent per legal area only when the request touches 3 or more legal areas, or when the applied state has no reference file.
 - **Deep:**
-  - Dispatch one research subagent per legal area touched, using the research skill, with one area and one state each and at most 6 searches.
+  - Dispatch one research subagent per legal area touched. Each one covers federal law plus the applied state for its area, with at most 6 searches. Give it the sourcing standard from `references/research-resilience.md`, and have it do the research itself, without the research skill (which starts a background agent of its own).
   - When all of them have returned, dispatch **one** verifier subagent. It re-opens every source with WebFetch only.
   - Subagents dispatch no subagents of their own, and each returns its complete result.
 
