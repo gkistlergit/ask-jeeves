@@ -27,3 +27,5 @@ Resolved 2026-10-20. Grant accepted the recommendations ("go for recs on tickets
 - **Search limit hit:** fall back to direct WebFetch of official URLs. Anything still unchecked is marked [UNVERIFIED], and the label or verification note says the search limit was hit.
 - **Budget:** no hard token cap. Deep warns up front that it takes 20–45 minutes.
 - Staleness warnings on old reference files stay in the update-cadence fog.
+
+**Amended 2026-10-20 (Grant: "so it doesn't get hung up again"):** the search and stall rules now live in the skill's `references/research-resilience.md`. Intermediate gets at most 8 searches. Deep gets at most 6 per area subagent, and the verifier fetches only. Subagents never nest and always finish before returning. Deep delivers what it has verified at about 45 minutes instead of waiting.
