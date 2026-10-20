@@ -19,7 +19,7 @@ All reading happens on this Mac. The file and its text never go to an upload or 
    swift <skill folder>/scripts/pdf-text.swift "<file.pdf>" "<scratchpad>/<new folder>"
    ```
    The script prints one line per page, then writes `all.txt` with every page in order. Each page carries a `<!-- page N (text | ocr | image only) -->` marker.
-   - **Text layer:** used as is. This covers encrypted PDFs that open with an empty user password, which macOS PDFKit reads where pypdf needs the `cryptography` package.
+   - **Text layer:** used as is. This covers encrypted PDFs that open with an empty user password, which macOS PDFKit reads where pypdf needs the `cryptography` package (or `pycryptodome`).
    - **Under 50 characters of text on a page:** the script renders that page to `page-N.png` at 300 dpi and runs local `tesseract` on it, writing `page-N.ocr.txt`.
    - **Exit 3, "LOCKED":** the PDF needs a password. Ask Grant to open it himself and export an unlocked copy. Jeeves never guesses or cracks a password.
 2. **Image-only pages.** If a page reads "image only" (no `tesseract`, or OCR found nothing), Read its `page-N.png` with the Read tool.
@@ -35,4 +35,7 @@ On 2026-10-20 the script read the two fictional fixtures `fixtures/scanned-contr
 
 ## Changes since last as-of
 
-None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`).
+### 2026-10-20 refresh
+
+- [fix] Dates renewed; no change found in PDFKit, tesseract or pypdf since as-of (https://developer.apple.com/documentation/pdfkit)
+- [fix] Noted `pycryptodome` as pypdf's alternative to `cryptography` for AES-encrypted PDFs (https://pypdf.readthedocs.io/en/stable/user/encryption-decryption.html)
