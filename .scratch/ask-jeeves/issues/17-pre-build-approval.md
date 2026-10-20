@@ -1,6 +1,6 @@
 # Pre-build design approval
 Type: grilling
-Status: open
+Status: claimed
 Blocked by: 09, 10, 11, 12, 13, 14, 15, 16
 
 ## Question
