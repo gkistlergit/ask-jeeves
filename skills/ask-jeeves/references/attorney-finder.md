@@ -88,9 +88,11 @@ Review evidence comes from **WebSearch snippets** plus **firm websites via WebFe
 ## 4. Who qualifies (thresholds, from ticket 14)
 A candidate must meet **all** of these. [cite: ticket 14]
 - **Practice match.** Employment law, on the right side for the mode: employee-side for employee mode, management-side for employer mode.
+  - Prefer the firm's own site as evidence of side. If it can't be opened, the attorney's own directory profile text may stand in; say so on the entry. [cite: ticket 25 test]
 - **Reviews.** At least a **4.3-star** average, from at least **10 reviews** across at least **2 independent sources**, with at least one review in the **last 24 months**.
   - **Recency** is met when any one source shows a review dated within 24 months. Undated sources still count toward the rating, the review count and the 2-source rule. [cite: ticket 25]
   - **Independent** means a distinct review platform (Google, Avvo, Yelp, BBB, Lawyers.com, a firm-independent directory). An aggregator that republishes another platform's reviews, such as TrustAnalytica or LeadStal mirroring Google, counts as that platform, never as a second source. [cite: ticket 25]
+  - **The 4.3 average** is weighted by review count across the counted sources. Facebook counts as a platform. A firm's reviews and its named attorneys' reviews may be pooled into one candidate that names those attorneys. [cite: ticket 25 test]
   - Record the rating, the count and the latest review date for each source **as seen**. Never estimate them.
   - Watch for FTC fake-review signals (16 CFR 465; §5 below). Flag a candidate with those signals; drop it when the signals are strong.
 - **Budget: free or close to free.** At least one of these must be **published**:
@@ -107,7 +109,7 @@ A candidate must meet **all** of these. [cite: ticket 14]
 Shown only when fewer than 3 qualify, with at most 3 entries, ranked like the qualified list. [cite: ticket 25]
 - **Still required:** practice match on the right side; at least 4.3 stars from at least 10 reviews in total; no strong fake-review signal (§5). The license reads "pending your check", as for everyone.
 - **May be missing,** in any combination:
-  - **recency:** no review date visible on any source;
+  - **recency:** no review dated within 24 months on any source (undated, or only older dates seen);
   - **second source:** one platform only, which must then show at least **50** reviews;
   - **published fee:** fee "unknown".
 - Each entry names exactly which of these it is missing, so Grant knows what to check himself. For a missing fee, the line reads "ask about the consult fee".
@@ -247,6 +249,7 @@ Shown only when fewer than 3 qualify, with at most 3 entries, ranked like the qu
 
 ## 8. Output (per location, exactly as ticket 14)
 - Return **3–5** candidates, ranked by **budget fit, then rating, then review volume**. [cite: ticket 14]
+- On a budget-fit tie, a fee stated on the firm's own site ranks above a self-reported directory flag. When no candidate with usable reviews sits in the location itself, widen to the nearest metro and say so in the header. [cite: ticket 25 test]
 - One block per location, in this format: [cite: ticket 14]
 ```
 Attorney finder: <city, ZIP> · licensed in <state> · checked <date>
@@ -262,7 +265,7 @@ Not an endorsement. Jeeves does not contact or hire attorneys; you choose and co
 - Fewer than 3 qualify: say so, list who did, then the second tier (§4) under its own heading, then the budget route (bar referral service and legal aid for that state, §6). [cite: ticket 14; ticket 25]
 ```
 Strong, not fully confirmed (fewer than 3 qualified; check these yourself)
-A. <Name>, <Firm> (<city>). Missing: <no review date visible | one platform only | fee unknown, ask about the consult fee>
+A. <Name>, <Firm> (<city>). Missing: <no review dated within 24 months | one platform only | fee unknown, ask about the consult fee>
    License: pending your check at <official site> (search "<Last name>", city <city>) · Discipline: <check there>
    Reviews: Google 4.8 (144, latest unknown) (snippet)
    Fees: unknown
