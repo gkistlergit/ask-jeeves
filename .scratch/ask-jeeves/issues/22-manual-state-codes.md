@@ -37,7 +37,7 @@ Resolved 2026-10-20. Four more states are on disk: AL, CA, NJ and PA, plus Tenne
 
 After saving, run `scripts/ingest-code.sh <ST> <edition> <folder>`. It writes `text/` and the MANIFEST row. Chapter lists are under "Grant downloads by hand" in `Sources/_reports/slice*.md` (AR, CA, GA: slice 1–2; MS: slice 3; OH, OK, PA: slice 5; TN: slice 6).
 
-- **AR, GA, MS, TN (LexisNexis free public access).** Open the link, accept Lexis's terms yourself, then use each chapter's Print/Download button into `~/Downloads/<ST>-code/`. Each link is the state's official entry: LexisNexis's `hottopics` redirect, which the legislature's own "Code" link uses.
+- **AR, GA, MS, TN (LexisNexis free public access): by hand only.** The portal's Terms & Conditions (https://www.lexisnexis.com/terms/general.aspx, linked in its footer) bar access "via mechanical, programmatic, robotic, scripted or any other automated means" (§1.2(a)) and by any agentic AI system (§1.2(i)) without LN's written permission. So no agent, browser extension or script may open, navigate or save these pages, even in Grant's signed-in session. Grant opens the link, accepts the terms, and uses each chapter's own Print/Download button to save into `~/Downloads/<ST>-code/`. §1.2(b)(ii) also limits storing copyrighted Materials to 90 days; the unannotated statute text is public law, but delete any Lexis annotations or editorial notes from the download (or re-download yearly) to stay inside that limit. Each link is the state's official entry: LexisNexis's `hottopics` redirect, which the legislature's own "Code" link uses.
   - AR: https://www.lexisnexis.com/hottopics/arcode/
   - GA: https://www.lexisnexis.com/hottopics/gacode/
   - MS: https://www.lexisnexis.com/hottopics/mscode/
@@ -45,4 +45,4 @@ After saving, run `scripts/ingest-code.sh <ST> <edition> <folder>`. It writes `t
 - **OH.** robots.txt bars all automated access, so only a person can save these. Open https://codes.ohio.gov/ohio-revised-code/chapter-1333 and save the page into `~/Downloads/OH-ORC/`; repeat for chapters 2913, 2307, 4113, 4111, 4112, 4101, 2711, 1345 and 1349.
 - **OK.** Same robots bar. At https://www.oklegislature.gov, open "Oklahoma Statutes" and save Titles 15, 78, 40, 21, 25, 12, 24 and 85A into `~/Downloads/OK-statutes/`, then trim to the sections in slice 5.
 
-Methods that did not work and should not be retried: the built-in browser pane cannot save files; the Lexis public portal sent an automated Chrome tab to a sign-in error page ("Unable to Complete Your Request") twice, so Grant opens those links himself; and the CA, OSCN and tnsosfiles bot checks were not bypassed.
+Methods that did not work and must not be retried: the built-in browser pane cannot save files; the Lexis public portal sent an automated Chrome tab to a sign-in error page ("Unable to Complete Your Request") twice, so Grant opens those links himself; and the CA, OSCN and tnsosfiles bot checks were not bypassed.
