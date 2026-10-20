@@ -42,6 +42,7 @@ An `ask-jeeves` skill whose source lives in this repo at `skills/ask-jeeves/` (G
 - [Creative solutions: how they're presented](issues/13-creative-solutions.md): 1–2 per memo, labeled "Creative, not standard practice," each with why it might work, Risk L/M/H, Enforceability Likely/Uncertain/Unlikely, and "run it past an attorney." It must pass a non-obvious test and stay lawful and within the safeguards.
 - [Attorney-finder criteria](issues/14-attorney-finder-criteria.md): Grant set **≥4.3 stars** and **free or near-free**. Qualifying also takes ≥10 reviews across ≥2 sources with one in the last 24 months, plus a published free or ≤$50 consult, the bar LRS route, legal aid, or limited scope. Four location options, with a mismatch question. Grant checks license and discipline himself at the official lookup, and anyone unconfirmed is dropped. 3–5 ranked per location, with the not-an-endorsement note.
 - [Adjacent fields: include, defer or exclude](issues/16-adjacent-fields-scope.md): Grant accepted the ranking as proposed.
+- [End goal: ask it and let it steer the memo](issues/21-end-goal.md): Grant added this requirement. Jeeves asks for the end goal first. It steers the research and risk ranking, adds a Goal line, a reachability rating and a **Path to your goal** section to the memo, and aims every recommendation and creative option at it. It never overrides the safeguards.
 
 ## Not yet specified
 
