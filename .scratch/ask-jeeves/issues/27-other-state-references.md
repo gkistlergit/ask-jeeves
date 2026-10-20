@@ -1,6 +1,6 @@
 # Built-in references for other states
 Type: grilling
-Status: claimed
+Status: resolved
 Blocked by:
 
 ## Question
@@ -20,3 +20,17 @@ Decide:
 4. **Upkeep:** each added state joins the refresh schedule decided in [26](26-update-cadence.md), so more states mean more refresh work.
 
 Recommendation to grill: no new built-in states yet. Log the state of each real run, and revisit when one state appears in 3 or more runs; until then, live research plus `Sources/` covers other states.
+
+## Answer
+
+Grant took every recommendation (2026-10-20). To be built in [Build state cards and the run log](29-build-state-cards.md).
+
+1. **Trigger: Grant's ask or 3 runs, whichever comes first.** At delivery, Jeeves appends one line per run to `~/.claude/ask-jeeves-run-log.md`, outside the public repo: the applied state (and backup), the date and the depth. Nothing else from the request goes in. When a state other than IN or SC reaches 3 runs, Jeeves says so in one line and adds "build state card <ST>" to the refresh queue from [26](26-update-cadence.md).
+2. **Scope: a slim state card,** not a full reference file. It holds:
+   - the key statutes, with pointers into `Sources/`;
+   - the 3–6 leading cases on restrictive covenants, IP assignment and wage payment;
+   - `as_of` and `verified` frontmatter.
+
+   Each card is deep-researched and verified once. Quick mode can then cover that state, labeled "slim state card". A state is upgraded to a full reference file at about 10 runs, which becomes a new decision for Grant at that point.
+3. **States now: none.** Indiana law governs Grant's agreement, SC covers the move, and no run has needed another state. California was raised, because it voids most non-competes, and was not added.
+4. **Upkeep:** every state card joins the twice-yearly refresh and the 12-month staleness rule from 26. Card changes follow the same fix-vs-substance split for approval.
