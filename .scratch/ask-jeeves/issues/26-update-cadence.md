@@ -1,6 +1,6 @@
 # Reference-file update cadence
 Type: grilling
-Status: open
+Status: resolved
 Blocked by:
 
 ## Question
@@ -19,3 +19,16 @@ Decide, per file or per area:
 4. **Change log:** whether a refresh records what changed since the last `as_of`, and where.
 
 Recommendation to grill: twice-yearly refreshes after the July 1 and January 1 effective dates; a run that finds a newer law change flags the reference file as stale in the memo; references older than 12 months are treated as leads only, as in intermediate mode.
+
+## Answer
+
+Grant took every recommendation (2026-10-20). Built in [28](28-build-update-cadence.md).
+
+1. **Cadence: both.** A full refresh twice a year, mid-July and mid-January, after the July 1 and January 1 effective dates. A single file is also refreshed whenever a run finds a law change newer than its `as_of`.
+2. **Runner: scheduled tasks in the app.** The `ask-jeeves-annual-code-refresh` task (July 15) grows to cover the reference files as well as `Sources/`, and a January 15 twin is added. Each run re-does the deep research and the verifier per file and opens a PR. Free to run.
+3. **Staleness: 12 months.** Past that age, quick mode labels the memo "reference may be out of date". Intermediate and deep treat the file as leads only and check every point live.
+4. **Change log:** a "Changes since last as-of" section at the bottom of each reference file.
+5. **Approval:** fixes merge and deploy under Grant's standing go. Substance changes wait for Grant's review.
+6. **Newer change found in a run:** the memo's verification line flags the file and the change, and Jeeves appends both to `~/.claude/ask-jeeves-refresh-queue.md` (outside the public repo). A weekly scheduled task refreshes whatever is queued.
+7. **Substance vs fix:** substance is any change to a rule, a holding, the date a law takes effect, a risk or likelihood rating, or an added or removed authority. A fix is dates, URLs, citation format, page-number style or typos. The verifier tags each change; anything it is unsure about counts as substance.
+8. **Statute library:** the same 12-month rule applies to `Sources/` editions: older copies are leads only, checked live on the official site. The twice-yearly task re-downloads what it can reach and lists Indiana (and any other hand-download state) for Grant.

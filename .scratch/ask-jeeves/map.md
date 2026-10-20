@@ -49,10 +49,10 @@ An `ask-jeeves` skill whose source lives in this repo at `skills/ask-jeeves/` (G
 - [Approve and deploy](issues/20-approve-and-deploy.md): live 2026-10-20. ask-jeeves#1 merged (`355f95d`), pinned in claude-global-settings `skillPackages` (#60), and `~/.claude/skills/ask-jeeves` linked to the vendored pin. The one-package install left the unmanaged contract-drafter alone.
 - [Attorney-finder recency rule](issues/25-attorney-finder-recency.md): recency comes from any one dated source, and mirror sites count as the platform they copy. A lettered "strong, not fully confirmed" tier (up to 3) fills in when fewer than 3 qualify, each entry naming what it misses. Live at `933fc5a`.
 - [Remaining state codes](issues/22-manual-state-codes.md): AL (ALISON's public API), CA (byte-range reads of the Legislative Counsel pubinfo zip), NJ (the Legislature's STATUTES-TEXT.zip) and PA (palegis.us read in a browser) are now in `Sources/`. MANIFEST.md lists every edition on disk. TN has its 2026 non-compete act only. GA is skipped. AR, MS, TN (code), OH and OK are skipped for now: LexisNexis terms bar agents and OH/OK robots.txt bar all bots, so each is a hand download; steps are in the ticket.
+- [Reference update cadence](issues/26-update-cadence.md): full refresh each mid-July and mid-January plus a per-file refresh when a run finds a newer change (queued in `~/.claude/ask-jeeves-refresh-queue.md`, run weekly). Files and `Sources/` editions over 12 months old are leads only. Fixes ship automatically; substance changes wait for Grant. Build is ticket [28](issues/28-build-update-cadence.md).
 
 ## Not yet specified
 
-- **Update cadence:** now ticket [26](issues/26-update-cadence.md).
 - **Other states:** now ticket [27](issues/27-other-state-references.md).
 - **claude.ai chat availability.** Whether to also package a zip for claude.ai or Desktop chat.
 - **Test-case growth.** Whether the fixtures become a re-runnable regression suite.
