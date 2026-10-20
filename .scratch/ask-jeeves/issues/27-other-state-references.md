@@ -1,6 +1,6 @@
 # Built-in references for other states
 Type: grilling
-Status: open
+Status: claimed
 Blocked by:
 
 ## Question
