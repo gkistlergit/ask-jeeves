@@ -22,7 +22,7 @@ Paths below are relative to this skill's folder. Terms follow the glossary in `.
   - help plan retaliation or evade a valid covenant;
   - produce a final signed legal document. Suggested clause wording is allowed, labeled "draft for your attorney to review".
 - **Privacy.**
-  - Web queries use generic legal terms plus a state, city or ZIP. Party names, contract text and personal facts stay out of every query and URL. The one exception is the attorney finder, which may search a shortlisted attorney's name to find reviews.
+  - Web queries use generic legal terms plus a state, city or ZIP. Party names, contract text and personal facts stay out of every query and URL. The name of a legal authority is fine to search, even one quoted from the input (for example *Smith v. Jones*, 123 N.E.3d 456, or IC 24-2-3-2), because it's a public citation. The one exception is the attorney finder, which may search a shortlisted attorney's name to find reviews.
   - The home location is "Noblesville, IN 46060". Jeeves never stores or uses a street address.
   - Live location is used only after Grant agrees, and resolved to city and ZIP only.
   - Memos and attorney lists are shown in chat. They're saved to disk only when Grant asks, and then only where he says.
@@ -41,7 +41,7 @@ Take the input (pasted text, a file path, or a described situation), and read it
 - a cease-and-desist or demand letter received;
 - a government charge, subpoena or investigation;
 - an accusation by the employer that the employee took data;
-- a legal deadline within 30 days.
+- a **legal deadline** within 30 days: a date set by statute, court, agency or a signed legal document that cuts off rights if missed. Examples: a release's consideration or revocation window, an EEOC or state charge deadline, a deadline to answer a demand or file in arbitration. A deal date such as an offer's sign-by date is **not** a legal deadline. Flag it in the Bottom line instead.
 
 If any of these is true, stop. Say plainly that this needs a licensed attorney now, write no memo, and offer only the attorney finder (step 7).
 
@@ -84,7 +84,9 @@ Read `references/choice-of-law.md`, which holds the decision procedure, the unce
    Confirm the applied state with a licensed attorney before relying on this.
    ```
    Say **Uncertain** whenever any uncertainty signal in the reference file is present, for example a court that may not honor the choice-of-law clause.
-4. **Ask for confirmation** in one AskUserQuestion: *Confirm <primary>* / *Use <backup> instead* / *Primary with backup notes* / *Other state*.
+4. **Ask for confirmation** in one AskUserQuestion:
+   - with a backup: *Confirm <primary>* / *Use <backup> instead* / *Primary with backup notes* / *Other state*;
+   - with no backup: *Confirm <primary>* / *Other state*.
 5. **A state without a built-in reference file** (anything other than federal, IN or SC) uses the table only to flag issues. Quick can't cover it: offer intermediate or deep instead.
 
 *Done when* Grant has picked an option. Research starts only after that answer.
@@ -97,9 +99,9 @@ Load the reference files for each legal area the input touches: `references/insi
 
 - **Quick:** reference files only, with no web calls. Cite only what the files contain.
 - **Intermediate:**
-  - Use at most 8 WebSearch calls in total. Use them to look for changes since each file's `as_of`, and for the applied state if it has no reference file.
-  - WebFetch every source you will cite.
-  - Dispatch one subagent per legal area only when the request touches 2 or more areas and needs more than 8 sources opened, or when the applied state has no reference file.
+  - Use at most 8 WebSearch calls in total. Spend them on: changes since each file's `as_of`, skipped when `as_of` is within the last 30 days (say so in the verification line); the applied state, if it has no reference file; and spot-checks.
+  - Open every source you will cite, in fallback-chain order (`references/research-resilience.md`). For Indiana, that means the local 2026 code text, not iga.in.gov.
+  - Work in the main thread. Dispatch one subagent per legal area only when the request touches 3 or more legal areas, or when the applied state has no reference file.
 - **Deep:**
   - Dispatch one research subagent per legal area touched, using the research skill, with one area and one state each and at most 6 searches.
   - When all of them have returned, dispatch **one** verifier subagent. It re-opens every source with WebFetch only.
@@ -122,14 +124,14 @@ Load the reference files for each legal area the input touches: `references/insi
 
 ### 5. Write the memo
 
-Fill `templates/memo.md` exactly: every section at every depth, 600–900 words of prose.
+Fill `templates/memo.md` exactly: every section at every depth, 600–900 words of prose. What counts as prose is defined in the template. Draft long, then cut to the cap; drafts typically run 1,200–1,400 words.
 - **End goal drives the memo.** The goal line goes in the header. Bottom line opens with whether the goal looks reachable (Likely, Uncertain or Unlikely), with the reason. **Path to your goal** gives the ordered steps that get there. Risks that threaten the goal rank first and are tagged *(goal)*. Each recommendation and creative option should move Grant toward the goal. Where the goal can't be reached lawfully, say so plainly and give the closest lawful alternative.
 - **Likelihood:** Low, Medium or High, with a few words of reason.
-- **Recommendations:** grouped Before signing / On the job / When leaving. Add "Talk to a licensed attorney before you act" to any item with a hire trigger: a High risk, possible criminal exposure (trade-secret theft, computer trespass, CFAA), an Uncertain state or a backup state, a government agency involved, or a signing or resignation within 14 days.
-- **Creative option:** 1–2, labeled **Creative, not standard practice**, each with Risk, Enforceability and a citation for every legal premise. It has to be a lever most people miss, aimed at the end goal (for example, trading a non-compete for paid garden leave, or attaching a dated schedule of prior inventions to protect apps Grant built on his own). Restating a recommendation doesn't count. It must be lawful and inside the rules above.
+- **Recommendations:** grouped Before signing / On the job / When leaving. Add "Talk to a licensed attorney before you act" to any item with a hire trigger (once under the group heading when every item in the group has one): a High risk, possible criminal exposure (trade-secret theft, computer trespass, CFAA), an Uncertain state or a backup state, a government agency involved, or a signing or resignation within 14 days.
+- **Creative option:** 1–2, labeled **Creative, not standard practice**, each with Risk, Enforceability and a citation for every legal premise. It has to be a lever most people miss, aimed at the end goal (for example, trading a non-compete for paid garden leave, or moving apps Grant built on his own into his own LLC before signing, so the carve-out names an owner the assignment can't reach). Restating a recommendation doesn't count. It must be lawful and inside the rules above.
 - **Adjacent fields:** included fields get analysis. Deferred fields (NLRA, unemployment, tax on severance, immigration) get one-line flags.
 
-**Plain-language pass:** call the Skill tool with `humanizer` on the memo prose, then put back verbatim any quote, citation, statute or case name, or glossary term it touched. After a hard-to-read quoted clause, add `*In plain terms:*`.
+**Plain-language pass:** call the Skill tool with `humanizer` on the memo's sentences only (headings, bold template labels, tables and citations stay as the template has them), then put back verbatim any quote, citation, statute or case name, or glossary term it touched. After a hard-to-read quoted clause, add `*In plain terms:*`.
 
 *Done when* every section is filled, every legal claim carries `[n]`, and the verification ending matches the depth.
 

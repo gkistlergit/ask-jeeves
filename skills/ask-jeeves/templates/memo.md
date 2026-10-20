@@ -1,6 +1,6 @@
 # Memo template
 
-Fill every section at every depth. Depth changes how much research and verification backs the memo, never which sections it has. Prose runs 600–900 words, not counting the header, tables, quotes and sources.
+Fill every section at every depth. Depth changes how much research and verification backs the memo, never which sections it has. Prose runs 600–900 words. **Counts:** the sentences in Bottom line, Path to your goal, State applied, Recommendations, Creative option, Questions and Adjacent issues. **Doesn't count:** the header, headings and bold labels, the Risks table, quoted clauses and their *In plain terms* lines, Sources, and the verification ending.
 
 ```
 # Jeeves memo: <short title>
@@ -31,7 +31,7 @@ Confirm the applied state with a licensed attorney before relying on this.
 
 ## Recommendations
 **Before signing**
-- (#1) <action>. <"Talk to a licensed attorney before you act." when a hire trigger applies>
+- (#1) <action>. <"Talk to a licensed attorney before you act." when a hire trigger applies; put it once under the group heading when every item in the group has one>
 **On the job**
 - (#n) <action>
 **When leaving**
@@ -52,7 +52,7 @@ Run it past a licensed attorney before using it.
 - <field>: <one line> [n]
 
 ## Sources
-[1] <citation>. <URL> (confirmed <date> | from reference file, verified <date> | (mirror) | [UNVERIFIED: reason] | [NOT FOUND: possibly fabricated])
+[1] <citation>. <URL> (confirmed <date> | from reference file, verified <date> | local official code, <edition> | (mirror) | [UNVERIFIED: reason] | [NOT CHECKED: quick mode] | [NOT FOUND: possibly fabricated])
 
 <Verification line or note, by depth (see below)>
 ```
