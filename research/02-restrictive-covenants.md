@@ -372,3 +372,26 @@ An independent verifier re-checked this file against primary sources. Nothing he
 - **S. 883:** the SC sine die outcome. The resolution is in conference per its bill page; a secondary claim of a governor's order extending the session was not checked.
 - **Not opened:** the H. 4767 and S. 46 bill texts, the *MailSource* reporter cite, and the Adamas final order text (its date comes from the FTC listing).
 - **FTC tag after 2026-06-22:** no newer items appear on the FTC Noncompete tag as of today.
+
+### IC official check (2026 code download, 2026-10-20)
+
+Checked against the official 2026 Indiana Code (iga.in.gov download): Titles 16, 24 and 25 from `sources/indiana-code/`, and Titles 2, 23 and 27 converted from the 2026 HTML edition. SEA 475 (P.L. 207-2025) is codified only in IC 25-22.5-5.5 (SEC. 1–7 → §§ 1.1, 1.2, 1.3, 1.4, 1.6, 1.7, 2.3); no P.L. 207-2025 section appears in Title 16.
+
+- **IC 25-22.5-5.5-1:** confirmed (applies to agreements originally entered into on or after 2020-07-01).
+- **IC 25-22.5-5.5-1.1, -1.2, -1.3:** confirmed as SEA 475 definitions (business entity; hospital via IC 16-18-2-179(b); hospital system). Not separately stated in [I2]; now in the reference file.
+- **IC 16-18-2-179(b):** confirmed; the hospital definition excludes freestanding health facilities and physician offices that don't regularly keep bed patients.
+- **IC 25-22.5-5.5-1.4:** confirmed, with one precision: the definition applies only "as used in section 2.3," so the stay-or-pay and indirect-restriction coverage reaches hospital-side employers only. The employee non-solicit exclusion covers solicitation of current employees.
+- **IC 25-22.5-5.5-1.5:** confirmed (family, general pediatric, internal medicine).
+- **IC 25-22.5-5.5-1.6, -1.7:** confirmed.
+- **IC 25-22.5-5.5-2(a), (b):** confirmed. Added from the text: the two-year patient window, redaction of patient names, and that declining the buyout doesn't limit the employer's equitable remedies.
+- **IC 25-22.5-5.5-2.3:** confirmed (void and unenforceable; pre-2025-07-01 agreements excluded).
+- **IC 25-22.5-5.5-2.5:** confirmed.
+- **IC 25-22.5-5.5-2.6:** confirmed (35-day notice, 45-day mediation). Added: it does not apply to agreements originally entered into before 2023-07-01, and mediator costs split equally by default.
+- **IC 25-22.5-5.5-4:** confirmed (not cited in [I1]; chapter doesn't limit other terms or remedies).
+- **[I3] history lines:** confirmed (only P.L. 93-2020, P.L. 165-2023, P.L. 207-2025).
+- **IC 24-2-3-1(c), -3, -4(c), -5, -7:** confirmed. Corrected the edition: [I7] cited the 2025 IC; the 2026 IC text matches, so the reference file cites the 2026 edition.
+- **IC 23-2-2.7-1(9):** confirmed, with precision: the 3-year / exclusive-area cap applies to covenants on termination or non-renewal, and to "an area of reasonable size" when no exclusive area is granted.
+- **IC 27-16-3-2:** confirmed (PEO agreement doesn't modify client covenants; PEO not liable unless it agreed in writing).
+- **IC 2-5-47-7:** confirmed (2023 task-force study item, P.L. 203-2023); left out of the reference file as not outcome-relevant.
+- **[I6] full-code scan:** re-run only for Titles 2, 16, 22, 23, 24, 25 and 27 ("noncompet," "covenant not to compete," "restrictive covenant"); no other non-compete provision found in those titles. Other titles not re-scanned.
+- **Not found:** none of the cited sections was missing.

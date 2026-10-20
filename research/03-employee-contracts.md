@@ -935,3 +935,28 @@ An independent verifier re-opened every authority in this file at a primary sour
   - SEC Rule 21F-17 enforcement in 2025–26.
 - **Never re-run:** the keyword-scan negative findings (IN7, IN27, SC8, SC31) and the district-court EFAA search (F49). A web search found no 7th Circuit or N.D./S.D. Ind. or D.S.C. whole-case EFAA decision.
 - **Access limits:** CourtListener rate-limited and Justia blocked some requests. No CAPTCHA was attempted.
+
+### IC official check (2026 code download, 2026-10-20)
+Checked against the official IGA 2026 Indiana Code text (`sources/indiana-code/IC-title-NN.txt`; all-title scans from the 2026 HTML download). URL form: https://iga.in.gov/laws/2026/ic/titles/NN.
+- **IC 22-2-5-1** (IN10): confirmed. Semimonthly/biweekly, 10-business-day lag, void contracts, quitter paid next regular payday.
+- **IC 22-2-5-2** (IN11): confirmed. Mandatory fees and costs; 2x only absent good faith (P.L.193-2015).
+- **IC 22-2-6-1** (IN15): confirmed.
+- **IC 22-2-6-2** (IN15–IN17): confirmed, with additions. The 2026 code prints two versions (P.L.104-2026 SEC.22, with (b)(19) and (f); P.L.115-2026 SEC.14, with updated (b)(10) and (d)(2) cross-references). **No listed purpose covers loss of, damage to, or failure to return employer property; (b)(15) covers only the *purchase* of necessary equipment or tools at vendor cost**, capped by (d), with (e) barring OSHA protective-equipment charges. Added from the text: (b)(6) employer-offered merchandise sold at the employee's written request; (b)(7) a written-instrument employer loan; (c) interest cap of bank prime plus 4% on loans and advances.
+- **IC 22-2-6-4** (IN18): confirmed; also the decimal-point exception in (c)(2).
+- **IC 22-2-8-1** (IN19): confirmed.
+- **IC 22-2-9-2, -3** (IN12): confirmed.
+- **IC 22-2-2-3, -4(c), -14.1** (IN32): confirmed. P.L.67-2025 SEC.2 is in -3's history; -4 was last amended by P.L.147-2020; -14.1 added by P.L.15-2026. Added: -4(c) applies to employers with at least 2 employees in a workweek.
+- **IC 22-2-20-1 to -9** (IN31): confirmed. Added: employee documentation duty (-7) and reasonable effort to schedule electronically (-8).
+- **IC 22-5-3-1, -2** (IN24): confirmed as corrected.
+- **IC 22-5-9-1 to -12** (IN30): confirmed. Added: "knowingly or intentionally"; 3-year lookback (-8(a)); anti-retaliation for cooperating with the AG (-10).
+- **IC 22-6-3-1** (IN23): confirmed (last amended P.L.113-2014).
+- **IN33** (no 2025–26 public law in 22-2-5, 22-2-9, 22-6-3, 22-5-3, 24-2-3 histories): confirmed for the sections listed above.
+- **IC 24-2-3-1(c), -2, -4(c)** (IN8): confirmed. The displacement clause is limited to conflicting law on trade-secret misappropriation.
+- **IC 25-22.5-5.5-1.1 to -2.3** (IN28): confirmed (P.L.207-2025). Noted, not carried (ticket 02 scope): -2.5 bans primary-care physician noncompetes entered on or after July 1, 2023.
+- **IC 34-57-2-1, -3** (IN21): confirmed; -1 amended by P.L.115-2026 SEC.82; consumer leases, sales and loans exempt.
+- **IC 34-24-3-1** (IN26): confirmed (up to 3x actual damages, costs, fees, collection costs; text does not mention a conviction). What P.L.142-2026 SEC.5 changed: not determinable from the code text.
+- **IC 35-43-2-3** (IN25): confirmed, including the cellular-device language. IC 35-43-1-4 repeal by P.L.158-2013 confirmed. What P.L.111-2026 SEC.6 changed: not determinable from the code text.
+- **IC 35-43-4-3** (IN26): confirmed.
+- **IN7 (no invention-assignment statute):** confirmed by re-scan of all 37 titles for "invention," "inventor" and "intellectual property" near "employ." Hits: IC 6-3-2-21.7 (patent income tax), IC 4-29.5-2-7 (gaming-compact definition), and a Title 21 higher-education foreign-student disclosure provision. None limits assignment.
+- **Not re-run:** the IN20 waiver/release scan and the IN27 social-media, password and expense-reimbursement scans.
+- **Corrected:** none. No IC claim in this file conflicts with the 2026 text.

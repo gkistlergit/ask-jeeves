@@ -472,3 +472,28 @@ A second agent re-checked this file from scratch on 2026-10-20. It fetched every
 **Could not check:** OLRC currency through Pub. L. 119-120, CourtListener (rate-limited), SC 2026 acts, and the Indiana courts' own docket for *Med-1* and *HDNet*.
 
 **The 2025–26 change list stands.** *NRA Group*, P.L.111-2026 and the minor Indiana edits are all confirmed against primary text. The list now also notes the cert. denial, the SEA 119 effective date, and the 2025–26 RICO-list edits, none of which matters for insider theft.
+
+### IC official check (2026 code download, 2026-10-20)
+
+Each section was read in `sources/indiana-code/IC-title-NN.txt` (official 2026 iga.in.gov download) while building `references/insider-theft.md`. No claim was contradicted.
+
+- **IC 24-2-3-1(c)** (displacement, "pertaining to," contract and criminal law excepted): confirmed.
+- **IC 24-2-3-2** (trade secret, improper means, misappropriation; no reverse-engineering exclusion): confirmed.
+- **IC 24-2-3-3** (injunction, extension, royalty, affirmative acts): confirmed. The employment bar comes from *Ackerman*'s reading, not the text.
+- **IC 24-2-3-4** (damages, 2x exemplary): confirmed, refined: a royalty is available only when neither loss nor unjust enrichment is provable, and the 2x cap applies to the subsection (a) award.
+- **IC 24-2-3-5, -6, -7**: confirmed.
+- **IC 24-2-3-8** (last amended P.L.137-2021; chapter otherwise unchanged): confirmed.
+- **IC 34-24-3-1** (CVRA; IC 35-43 predicate; up to 3x, costs, fee, travel, time; P.L.142-2026 in history): confirmed, refined: the list also covers employee-time expenses and "other reasonable costs of collection." Effective date of P.L.142-2026 is not in the text: not found.
+- **IC 34-24-3-2**: checked; retailer presumption, no claim rests on it.
+- **IC 34-24-3-3** (no double recovery of punitive and CVRA amounts): confirmed.
+- **IC 34-24-2-6** (civil RICO: mandatory 3x, costs, fee, punitive; jury; TRO/preliminary-injunction showing): confirmed.
+- **IC 34-11-2-4, -7**: read; no claim in this file rests on them. The CVRA limitations period remains open.
+- **IC 35-31.5-2-253** (property includes intangibles, trade secrets, data; "of another person"): confirmed.
+- **IC 35-43-1-7** (Level 6; last amended P.L.168-2014): confirmed.
+- **IC 35-43-1-8** (grading incl. government/public-service and endangering-life triggers; AG deceptive act): confirmed.
+- **IC 35-43-2-3** (computer trespass; "access"; cellular-device sentence; P.L.111-2026 in history): confirmed, refined: consent may come from the owner or "the owner's licensee." The July 1, 2026 effective date is from the enrolled act, not this text.
+- **IC 35-43-4-1** (exert control; "unauthorized"): confirmed.
+- **IC 35-43-4-2** (grading; P.L.80-2026 domestic animal): confirmed.
+- **IC 35-43-4-3** (conversion, Class A misdemeanor): confirmed.
+- **IC 35-45-6-1** (pattern; theft listed, IC 35-43-1-7 not listed; items (41)–(42); P.L.186-2025, P.L.148-2026, P.L.153-2026 in history): confirmed.
+- **IC 35-45-6-2** (Level 5): confirmed.
