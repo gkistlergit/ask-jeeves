@@ -8,7 +8,8 @@ All runs are of `skill/v1`, 2026-10-20. Fixtures are in `fixtures/` (fictional).
 | Intermediate memo, "quick-verified" | **Pass.** 5 of 8 searches; fake cite marked NOT FOUND (the cited page holds Ohio entries); all sections present; about 880 words | `tests/memo-intermediate.md`, `tests/trace-intermediate.md` |
 | Deep memo, full verification note | **Pass.** About 27 min of the 45-min limit; 4 area subagents plus 1 verifier (22 confirmed, 3 corrected, 1 not found); fake cite NOT FOUND, listed in Bottom line, not used as support | `tests/memo-deep.md`, `tests/trace-deep.md` |
 | State mismatch (IN-law contract, a move to SC planned) | **Pass**, run live with Grant on 2026-10-20. Jeeves pre-filled from the document, asked one round of state questions (work, home, employer, events, counsel), found no override statute, and recommended **Indiana primary, SC backup** with reasons and a 4-row differences table. It flagged **Uncertain** (planned move, signed in SC), and held research until Grant confirmed ("Indiana with SC backup notes"). Grant gave his real-world goal and facts, which are kept out of this public repo. | `fixtures/mismatch-contract.md` |
-| Attorney finder, 4 locations | **Pending.** Needs Grant for license checks; no "Jeeves Location" Shortcut yet, so live location uses the IP fallback | n/a |
+| Deep memo on Grant's real goal (deep part of the state-mismatch test) | **Pass**, 2026-10-20. 4 area subagents plus 1 verifier: 36 sources checked, 33 confirmed, 3 corrected, 0 unverified, 0 not found; 880 words of prose; humanizer pass done. Memo shown in chat only; its facts stay out of this repo. | none (by design) |
+| Attorney finder, 4 locations | **1 of 4 run** (Home). 8 of 8 searches; **0 qualified**, so Jeeves reported that, gave the Indiana budget routes, and listed the near-misses with reasons. It didn't lower the bar. Still to run: Aiken, typed ZIP, live location (no "Jeeves Location" Shortcut yet). License checks are Grant's. | n/a |
 
 ## Gaps the tests found, all fixed on skill/v1
 - State confirmation assumed a backup state, so it now has a no-backup variant (8233b59).
@@ -19,3 +20,8 @@ All runs are of `skill/v1`, 2026-10-20. Fixtures are in `fixtures/` (fictional).
 - Searching authority names quoted in the input is allowed (8233b59).
 - Deep subagents no longer use the research skill, which nests an agent. Federal law goes with each area (f09147b).
 - The local statute library is now step 0. There's an explicit NOT FOUND procedure that never calls a real case fake because a tool failed (f09147b).
+
+## Process notes from the real-goal deep run (2026-10-20, not yet fixed)
+- The real input document arrived after research began, so the area research had targeted the stand-in. The skill has no step for re-scoping when the input changes mid-run. The verifier still covered every source the memo cites.
+- A scanned PDF input had no text layer, and the Read tool couldn't render it (no `pdftoppm`). Extracting the page images and running `tesseract` worked. An AES-encrypted PDF failed in pypdf (no `cryptography`) but opened in macOS PDFKit. Step 1 has no OCR or encrypted-PDF guidance.
+- Attorney finder: firm sites and third-party mirrors rarely show review dates, so the "review in the last 24 months" test failed most candidates. Every one of the 8 searches was needed before the "fewer than 3" route triggered.

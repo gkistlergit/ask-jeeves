@@ -1,7 +1,7 @@
 # Approve and deploy
 Type: task
 Status: open
-Blocked by: 19
+Blocked by: 19, 23, 24
 
 ## Question
 
