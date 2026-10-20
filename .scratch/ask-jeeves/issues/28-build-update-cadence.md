@@ -1,6 +1,6 @@
 # Build the reference update cadence
 Type: task
-Status: open
+Status: claimed
 Blocked by: 26
 
 ## Question
