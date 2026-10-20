@@ -26,6 +26,8 @@
 
 **Mismatch** — a location option outside the applied state, which triggers a question about which license matters.
 
+**Strong, not fully confirmed** — the attorney finder's second tier: attorneys who pass the practice, rating and review-count bars but lack a visible recent review, a second independent review platform, or a published fee. Shown only when fewer than 3 qualify, and never counted as qualified.
+
 **Request** — one `/ask-jeeves` invocation: its input (pasted text, a file, or a described situation), mode, applied state and depth.
 
 **Reference file** — a dated, built-in summary of verified law for one legal area, with a section per covered jurisdiction.

@@ -89,6 +89,8 @@ Review evidence comes from **WebSearch snippets** plus **firm websites via WebFe
 A candidate must meet **all** of these. [cite: ticket 14]
 - **Practice match.** Employment law, on the right side for the mode: employee-side for employee mode, management-side for employer mode.
 - **Reviews.** At least a **4.3-star** average, from at least **10 reviews** across at least **2 independent sources**, with at least one review in the **last 24 months**.
+  - **Recency** is met when any one source shows a review dated within 24 months. Undated sources still count toward the rating, the review count and the 2-source rule. [cite: ticket 25]
+  - **Independent** means a distinct review platform (Google, Avvo, Yelp, BBB, Lawyers.com, a firm-independent directory). An aggregator that republishes another platform's reviews, such as TrustAnalytica or LeadStal mirroring Google, counts as that platform, never as a second source. [cite: ticket 25]
   - Record the rating, the count and the latest review date for each source **as seen**. Never estimate them.
   - Watch for FTC fake-review signals (16 CFR 465; §5 below). Flag a candidate with those signals; drop it when the signals are strong.
 - **Budget: free or close to free.** At least one of these must be **published**:
@@ -97,9 +99,19 @@ A candidate must meet **all** of these. [cite: ticket 14]
   - the **bar lawyer-referral service** route (SC Bar LRS: ≤$50 for 30 min);
   - **legal aid** eligibility (125% FPL);
   - **limited-scope** help (RPC 1.2(c)).
-- A fee appears only when a source states it; otherwise it reads "unknown". Firm sites in the dry run said only "initial consultation" with no fee, so report "unknown", never "free". [cite: ticket 14; research 06 budget method 4]
-- **Fewer than 3 qualify:** say so, and list the bar referral service and legal aid as the budget route (§6). Don't lower the bar quietly. [cite: ticket 14]
+- A fee appears only when a source states it; otherwise it reads "unknown". An explicit "free consultation" or "free case evaluation" counts as a published free consult. "Initial consultation" or "book a consultation" with no fee stays "unknown", never "free". [cite: ticket 14; ticket 25; research 06 budget method 4]
+- **Fewer than 3 qualify:** say so, and list the bar referral service and legal aid as the budget route (§6). Don't lower the bar quietly. Fill the gap with the **strong, not fully confirmed** tier below, never by relaxing a threshold. [cite: ticket 14; ticket 25]
 - **License.** Nobody is listed as confirmed until Grant confirms an active license (§7).
+
+### Strong, not fully confirmed (second tier)
+Shown only when fewer than 3 qualify, with at most 3 entries, ranked like the qualified list. [cite: ticket 25]
+- **Still required:** practice match on the right side; at least 4.3 stars from at least 10 reviews in total; no strong fake-review signal (§5). The license reads "pending your check", as for everyone.
+- **May be missing,** in any combination:
+  - **recency:** no review date visible on any source;
+  - **second source:** one platform only, which must then show at least **50** reviews;
+  - **published fee:** fee "unknown".
+- Each entry names exactly which of these it is missing, so Grant knows what to check himself. For a missing fee, the line reads "ask about the consult fee".
+- These are never ranked with, or described as, qualified attorneys.
 
 ## 5. Fake-review signals (FTC)
 16 CFR Part 465 has been in force since 2024-10-21 and was unamended as of the 2026-10-15 eCFR text. [cite: 16 CFR 465, https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-465 ; 89 FR 68034 (Aug. 22, 2024), https://www.federalregister.gov/documents/2024/08/22/2024-18519/trade-regulation-rule-on-the-use-of-consumer-reviews-and-testimonials]
@@ -247,7 +259,16 @@ Not an endorsement. Jeeves does not contact or hire attorneys; you choose and co
 ```
 - `<official site>`: for Indiana, "Indiana Roll of Attorneys on in.gov/courts" (help page in.gov/courts/help/attorney-search); for SC, the SC Judicial Branch attorney search; otherwise the §7 table entry. SC discipline reads "check the Supreme Court's lawyer-conduct orders". [cite: ticket 14]
 - Mark snippet-derived ratings "(snippet)". Add any fake-review flag on its own line under Reviews. [cite: research 06 review-quality method; ticket 14]
-- Fewer than 3 qualify: say so, list who did, then the budget route (bar referral service and legal aid for that state, §6). [cite: ticket 14]
+- Fewer than 3 qualify: say so, list who did, then the second tier (§4) under its own heading, then the budget route (bar referral service and legal aid for that state, §6). [cite: ticket 14; ticket 25]
+```
+Strong, not fully confirmed (fewer than 3 qualified; check these yourself)
+A. <Name>, <Firm> (<city>). Missing: <no review date visible | one platform only | fee unknown, ask about the consult fee>
+   License: pending your check at <official site> (search "<Last name>", city <city>) · Discipline: <check there>
+   Reviews: Google 4.8 (144, latest unknown) (snippet)
+   Fees: unknown
+   Sources checked: <list with dates>
+```
+- Letter second-tier entries (A, B, C) so they can't be mistaken for the numbered qualified list. [cite: ticket 25]
 - The not-an-endorsement line closes every block, verbatim. [cite: ticket 14]
 
 ## 9. Rules

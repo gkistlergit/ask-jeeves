@@ -158,7 +158,7 @@ Run it only when Grant says yes. Run it as one subagent following `references/at
 - the four location options and the mismatch question;
 - the thresholds: at least 4.3 stars from at least 10 reviews across at least 2 sources, and free or close to free;
 - Grant checks the license and discipline himself at the official lookup;
-- 3–5 attorneys per location, with sources and the date checked;
+- 3–5 attorneys per location, with sources and the date checked. When fewer than 3 qualify, add up to 3 from the lettered *strong, not fully confirmed* tier, each naming what it's missing;
 - the not-an-endorsement note.
 
 Never invent a rating, review count or fee. A fee is shown only when a source states it, and otherwise reads "unknown".
