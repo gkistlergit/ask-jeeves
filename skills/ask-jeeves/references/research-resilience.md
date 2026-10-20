@@ -62,7 +62,7 @@ Google Scholar blocks WebFetch. Use it only through WebSearch result snippets. I
 
 ## 7. Age rule and the refresh queue
 
-**12-month rule.** A reference file whose `as_of` frontmatter is more than 12 months before today (the frontmatter governs over any date in the body), or a `Sources/` edition downloaded more than 12 months ago, is **stale**. Refreshes run every mid-July and mid-January, so a stale file means a refresh was missed.
+**12-month rule.** A reference file or state card (`references/state-cards/<ST>.md`) whose `as_of` frontmatter is more than 12 months before today (the frontmatter governs over any date in the body), or a `Sources/` edition downloaded more than 12 months ago, is **stale**. Refreshes run every mid-July and mid-January, so a stale file means a refresh was missed.
 - *Quick:* still use it, but the memo's label and ending say `reference may be out of date` (`templates/memo.md`).
 - *Intermediate and deep:* treat a stale file as leads only. Re-check every point you take from it on a live source, and spend searches there first. A point you can't re-check is `[n, UNVERIFIED: reference file stale]`.
 
@@ -72,7 +72,7 @@ Google Scholar blocks WebFetch. Use it only through WebSearch result snippets. I
 - <today, YYYY-MM-DD> | references/<file>.md | <the change, in generic legal terms> | <official source URL>
 ```
 
-The line names the law only: never a party, employer, person or any text from the input. A weekly scheduled task refreshes queued files (`docs/refresh-procedure.md` in the repo) and clears the lines it handles. Don't edit reference files during a run; the installed copy is pinned.
+The line names the law only: never a party, employer, person or any text from the input. The same format carries `build state card <ST>` lines from SKILL.md step 6, with the card's path as the file. A weekly scheduled task refreshes queued files, builds queued cards (`docs/refresh-procedure.md` in the repo) and clears the lines it handles. Don't edit reference files during a run; the installed copy is pinned.
 
 ## Changes since last as-of
 

@@ -98,7 +98,7 @@ Read `references/choice-of-law.md`, which holds the decision procedure, the unce
 4. **Ask for confirmation** in one AskUserQuestion:
    - with a backup: *Confirm <primary>* / *Use <backup> instead* / *Primary with backup notes* / *Other state*;
    - with no backup: *Confirm <primary>* / *Other state*.
-5. **A state without a built-in reference file** (anything other than federal, IN or SC) uses the table only to flag issues. Quick can't cover it: offer intermediate or deep instead.
+5. **A state without a built-in reference file** (anything other than federal, IN or SC) uses the table only to flag issues. If it has a slim state card, `references/state-cards/<ST>.md`, quick can cover it from the card. Otherwise quick can't cover it: offer intermediate or deep instead.
 
 *Done when* Grant has picked an option. Research starts only after that answer.
 
@@ -108,10 +108,10 @@ Aim the research at the end goal: what law helps reach it, what blocks it, and w
 
 If a new or replacement document arrives while research runs, stop and re-scope as in step 1, "When the input changes mid-run", before writing anything.
 
-Load the reference files for each legal area the input touches: `references/insider-theft.md`, `references/restrictive-covenants.md`, `references/employee-contracts.md`, and `references/adjacent-fields.md` for the adjacent issues. Each has Federal, Indiana and South Carolina sections.
+Load the reference files for each legal area the input touches: `references/insider-theft.md`, `references/restrictive-covenants.md`, `references/employee-contracts.md`, and `references/adjacent-fields.md` for the adjacent issues. Each has Federal, Indiana and South Carolina sections. For an applied or backup state other than IN or SC, also load its state card, `references/state-cards/<ST>.md`, when one exists. A file whose name starts with `_` is never a card.
 
-- **Before any depth:** apply the 12-month rule in `references/research-resilience.md` §7 to each reference file you load, `choice-of-law.md` from step 3 included. In a quick memo a stale file changes both the label and the ending (`templates/memo.md`); at intermediate and deep it is leads only.
-- **Quick:** reference files only, with no web calls. Cite only what the files contain.
+- **Before any depth:** apply the 12-month rule in `references/research-resilience.md` §7 to each reference file and state card you load, `choice-of-law.md` from step 3 included. In a quick memo a stale file changes both the label and the ending (`templates/memo.md`); at intermediate and deep it is leads only.
+- **Quick:** reference files and state cards only, with no web calls. Cite only what the files contain. A state covered from a card is labeled `slim state card` (`templates/memo.md`). Anything the card doesn't cover is a gap: list it and offer intermediate or deep. The `choice-of-law.md` Part 3 row may still flag an issue the card lacks, worded as a flag, not a conclusion.
 - **Intermediate:**
   - Use at most 8 WebSearch calls in total. Spend them on: changes since each file's `as_of`, skipped when `as_of` is within the last 30 days (say so in the verification line); the applied state, if it has no reference file; and spot-checks.
   - Open every source you will cite, in fallback-chain order (`references/research-resilience.md`). For Indiana, that means the local 2026 code text, not iga.in.gov.
@@ -153,7 +153,25 @@ Fill `templates/memo.md` exactly: every section at every depth, 600–900 words 
 
 ### 6. Deliver
 
-Show the memo in chat. Then ask one question: *"Want Jeeves to find a budget-friendly, well-reviewed attorney licensed in <applied state>?"* Yes / No.
+Show the memo in chat.
+
+**Log the run.** Append one line to `~/.claude/ask-jeeves-run-log.md` (outside the repo), creating the file with the heading `# ask-jeeves run log` if it's missing:
+```
+- <today, YYYY-MM-DD> | <applied state> | backup <state or none> | <quick|intermediate|deep>
+```
+States are two-letter codes, and `US` when only federal law applied. Nothing else from the request goes in: no goal, mode, party, document or place. A request routed straight to the attorney finder from step 1 wrote no memo and isn't logged.
+
+**State-card trigger.** For the applied state and the backup, when either is a state other than IN or SC, count the run-log lines that name it as applied or backup, this run's line included. At 3 or more, unless `references/state-cards/<ST>.md` exists or the refresh queue already has a `build state card <ST>` line:
+- say in one line: *"<State> has come up in 3 runs, so Jeeves queued a slim state card for it."*
+- append to `~/.claude/ask-jeeves-refresh-queue.md` (`references/research-resilience.md` §7):
+  ```
+  - <today, YYYY-MM-DD> | references/state-cards/<ST>.md | build state card <ST> | <the landing page of the state's official code site, from references/state-codes-part1.md or part2.md; the free official one when two are listed>
+  ```
+When Grant asks for a card for any state, queue the same line.
+
+Then ask one question: *"Want Jeeves to find a budget-friendly, well-reviewed attorney licensed in <applied state>?"* Yes / No.
+
+*Done when* the run is logged, any card is queued, and Grant has answered.
 
 ### 7. Attorney finder (opt-in)
 

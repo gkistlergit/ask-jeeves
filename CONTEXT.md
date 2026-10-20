@@ -32,6 +32,10 @@
 
 **Reference file** — a dated, built-in summary of verified law for one legal area, with a section per covered jurisdiction.
 
+**State card** — a slim, dated summary of one state's law for a state without a reference file: its key statutes (pointing into the local statute library) and the 3–6 leading cases on restrictive covenants, IP assignment and wage payment. Built when Grant asks or after 3 logged runs of that state, at `references/state-cards/<ST>.md`. Quick mode can cover a state from its card, labeled "slim state card".
+
+**Run log** — `~/.claude/ask-jeeves-run-log.md`, outside the repo: one line per delivered memo with only the date, applied state, backup and depth. It drives the state-card trigger.
+
 **Candidate state** — the state the selection round proposes before Grant confirms it as the applied state.
 
 **Plain-language pass** — the step that simplifies the memo's legalese before it is shown. Quotes, citations and defined terms are never changed by it.
