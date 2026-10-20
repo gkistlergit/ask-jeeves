@@ -62,8 +62,8 @@ Google Scholar blocks WebFetch. Use it only through WebSearch result snippets. I
 
 ## 7. Age rule and the refresh queue
 
-**12-month rule.** A reference file whose `as_of` is more than 12 months before today, or a `Sources/` edition downloaded more than 12 months ago, is **stale**. Refreshes run every mid-July and mid-January, so a stale file means a refresh was missed.
-- *Quick:* still use it, but the memo label gains `reference may be out of date` (`templates/memo.md`).
+**12-month rule.** A reference file whose `as_of` frontmatter is more than 12 months before today (the frontmatter governs over any date in the body), or a `Sources/` edition downloaded more than 12 months ago, is **stale**. Refreshes run every mid-July and mid-January, so a stale file means a refresh was missed.
+- *Quick:* still use it, but the memo's label and ending say `reference may be out of date` (`templates/memo.md`).
 - *Intermediate and deep:* treat a stale file as leads only. Re-check every point you take from it on a live source, and spend searches there first. A point you can't re-check is `[n, UNVERIFIED: reference file stale]`.
 
 **Refresh queue.** When an intermediate or deep run finds a law change dated after a reference file's `as_of` (a new statute, amendment, repeal, rule or controlling decision), flag it in the verification line (`Reference out of date: <file>, <change>`) and append one line to `~/.claude/ask-jeeves-refresh-queue.md`, creating the file if needed:
@@ -76,4 +76,4 @@ The line names the law only: never a party, employer, person or any text from th
 
 ## Changes since last as-of
 
-None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`). Current as of 2026-10-20.
+None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`).

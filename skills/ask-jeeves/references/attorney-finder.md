@@ -290,4 +290,4 @@ A. <Name>, <Firm> (<city>). Missing: <no review dated within 24 months | one pla
 
 ## Changes since last as-of
 
-None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`). Current as of 2026-10-20.
+None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`).

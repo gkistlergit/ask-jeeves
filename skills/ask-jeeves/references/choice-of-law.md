@@ -261,4 +261,4 @@ Failed or pending (not law): NY S9759, RI S2160, SC H.4767, PA HB 2558 (one cham
 
 ## Changes since last as-of
 
-None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`). Current as of 2026-10-20.
+None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`).

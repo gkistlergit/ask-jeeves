@@ -110,7 +110,7 @@ If a new or replacement document arrives while research runs, stop and re-scope 
 
 Load the reference files for each legal area the input touches: `references/insider-theft.md`, `references/restrictive-covenants.md`, `references/employee-contracts.md`, and `references/adjacent-fields.md` for the adjacent issues. Each has Federal, Indiana and South Carolina sections.
 
-- **Before any depth:** apply the 12-month rule in `references/research-resilience.md` §7 to each reference file you load. A stale file adds `reference may be out of date` to a quick memo's label and is leads only at intermediate and deep.
+- **Before any depth:** apply the 12-month rule in `references/research-resilience.md` §7 to each reference file you load, `choice-of-law.md` from step 3 included. In a quick memo a stale file changes both the label and the ending (`templates/memo.md`); at intermediate and deep it is leads only.
 - **Quick:** reference files only, with no web calls. Cite only what the files contain.
 - **Intermediate:**
   - Use at most 8 WebSearch calls in total. Spend them on: changes since each file's `as_of`, skipped when `as_of` is within the last 30 days (say so in the verification line); the applied state, if it has no reference file; and spot-checks.
