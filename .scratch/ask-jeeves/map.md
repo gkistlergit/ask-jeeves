@@ -52,8 +52,8 @@ An `ask-jeeves` skill whose source lives in this repo at `skills/ask-jeeves/` (G
 
 ## Not yet specified
 
-- **Update cadence.** How and how often the reference files are refreshed, and how the skill reports their age. This depends on how the reference files are laid out (08) and what changes fastest (01–04).
-- **Other states.** Whether any state beyond IN and SC gets built-in reference files (depends on 04 and on usage).
+- **Update cadence:** now ticket [26](issues/26-update-cadence.md).
+- **Other states:** now ticket [27](issues/27-other-state-references.md).
 - **claude.ai chat availability.** Whether to also package a zip for claude.ai or Desktop chat.
 - **Test-case growth.** Whether the fixtures become a re-runnable regression suite.
 
