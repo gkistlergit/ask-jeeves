@@ -1,6 +1,6 @@
 # Build state cards and the run log
 Type: task
-Status: open
+Status: claimed
 Blocked by: 28
 
 ## Question
