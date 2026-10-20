@@ -20,7 +20,7 @@ Ask one AskUserQuestion, **multi-select**. Search each chosen location separatel
 
 | Option | What Jeeves does |
 |---|---|
-| **My live location** | Consent first, then the Shortcut, then the IP fallback, then typed entry (below) |
+| **My live location** | Consent first, then the Jeeves Location app, then the IP fallback, then typed entry (below) |
 | **Type a ZIP** | Ask for the ZIP. Sends nothing anywhere until the search |
 | **Home: Noblesville, IN 46060** | Use exactly this city and ZIP. Never any street address |
 | **Aiken, SC** | Use the city and state |
@@ -29,16 +29,15 @@ Ask one AskUserQuestion, **multi-select**. Search each chosen location separatel
 
 **Live location, in order:**
 1. **Consent.** Ask: may I check your location? Say Jeeves keeps only city and ZIP, and that the result enters this conversation, which goes to Anthropic. Ask every time; never assume a past yes. [cite: research 07 §4; ticket 15]
-2. **Device (Shortcut).** Check the shortcut exists, then run it:
+2. **Device (Jeeves Location app).** Run the bundled helper:
    ```bash
-   shortcuts list | grep -qx 'Jeeves Location' || echo "MISSING"
-   shortcuts run 'Jeeves Location' --output-path -
+   <skill folder>/scripts/jeeves-location/run.sh
    ```
-   - Expected output: `City|ZIP`. `--output-path -` writes to stdout. [cite: research 07 §2b, `man shortcuts`; https://support.apple.com/guide/shortcuts-mac/apd455c82f02/mac]
-   - macOS shows its own privacy dialog. Grant should choose **Allow Once**, never Always Allow. Always Allow stops future prompts; undo it in the shortcut's Details > Privacy > Reset Privacy. [cite: https://support.apple.com/guide/shortcuts-mac/apd961a4fc65/mac]
-   - If missing, empty, denied or timed out: don't retry in a loop. Go to step 3. [cite: research 07 §4]
-   - One-time setup (Grant, in Shortcuts.app): Get Current Location → Get Details of Locations (City) → Get Details of Locations (ZIP Code) → Text `City|ZIP` as the final output. The CLI can't create shortcuts. [cite: research 07 §2b, §4]
-   - [UNVERIFIED: not yet run on hardware] whether the dialog appears under `shortcuts run` from Claude, whether a Bash sandbox blocks it, and how a Mac without GPS resolves location (needs Wi-Fi and Location Services on for Shortcuts).
+   - It builds and ad-hoc signs `Jeeves Location.app` on first use (`build.sh`, output in its gitignored `build/`), opens it, and prints `City|ZIP`. Coordinates are never printed or saved. Apple's geocoder turns the fix into a city and ZIP, so tell Grant his location goes to Apple for that step.
+   - macOS shows its own prompt for "Jeeves Location" the first time. Grant's answer stays in System Settings → Privacy & Security → Location Services, where he can remove it to be asked again. Jeeves still asks for consent in chat every run (step 1).
+   - On `DENIED`, `FAILED`, `GEOCODE_FAILED` or `TIMEOUT` (90 s): don't retry in a loop. Go to step 3.
+   - Why an app: a bare script or `swift` run gets no prompt and an immediate denial, since locationd only prompts a bundled app with a location usage string. Checked on this Mac on 2026-10-20 (macOS 27), where it returned the correct city and ZIP.
+   - The Shortcuts route (`shortcuts run 'Jeeves Location' --output-path -`, from research 07) is an untested alternative if Grant builds that shortcut by hand. The CLI can't create shortcuts. [cite: research 07 §2b, §4; https://support.apple.com/guide/shortcuts-mac/apd455c82f02/mac]
 3. **IP fallback (approximate).** Offer it; use it only if Grant agrees. Disclose all three every time: it is **approximate** (ISP or VPN exit; iCloud Private Relay changes it), it **sends Grant's IP to ip-api.com**, and it uses **plain HTTP**. [cite: research 07 §3; https://ip-api.com/docs/api:json]
    ```bash
    curl -sS --max-time 5 'http://ip-api.com/json/?fields=status,message,city,zip'
@@ -47,7 +46,7 @@ Ask one AskUserQuestion, **multi-select**. Search each chosen location separatel
    - Run it with `curl` from Bash, never WebFetch: WebFetch upgrades HTTP to HTTPS, and the free endpoint has no HTTPS. [cite: research 07 §3; https://ip-api.com/docs/api:json]
    - Free tier: non-commercial use, 45 requests/min, no key; IPs held in RAM "for up to 1 minute". [cite: https://ip-api.com/docs/api:json; https://ip-api.com/docs/legal]
 4. **Typed entry.** Always available as the last resort or by choice. It sends nothing anywhere. [cite: research 07 §4]
-5. **Confirm back.** "I have <city>, <ZIP>. Use it?" Let Grant correct it. Keep only city and ZIP; coordinates never leave the shortcut. Don't write the location to files or memory. [cite: research 07 §4; ticket 15]
+5. **Confirm back.** "I have <city>, <ZIP>. Use it?" Let Grant correct it. Keep only city and ZIP; coordinates never leave the location helper. Don't write the location to files or memory. [cite: research 07 §4; ticket 15]
 
 ## 2. Mismatch check
 - For each location, compare its state with the applied state. If they differ, that is a *mismatch*. [cite: ticket 14; CONTEXT.md]
@@ -261,6 +260,6 @@ Not an endorsement. Jeeves does not contact or hire attorneys; you choose and co
 
 ## Open questions / known gaps
 - Settled 2026-10-20: the privacy rule protects Grant and the parties to his matter, not public attorneys. Per-candidate review queries ("<name> <city> reviews") are allowed, and they count toward the per-location search budget.
-- Shortcut behavior under `shortcuts run` from Claude, and Allow Once re-prompting each run, are untested. [UNVERIFIED: research 07]
+- Settled 2026-10-20: device location comes from the bundled Jeeves Location app (§1 step 2), verified on this Mac. The hand-built Shortcut route is untested. [UNVERIFIED: research 07]
 - IndyBar's client fee and Hamilton County coverage; the SCLS office for Aiken County; an SC limited-scope appearance rule. [UNVERIFIED: research 06 open questions 4–5]
 - Whether handing over any Indiana lookup URL breaches "link to". The help page is the conservative choice. [UNVERIFIED: research 06 open question 2]
