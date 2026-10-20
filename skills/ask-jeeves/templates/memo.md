@@ -60,7 +60,7 @@ Run it past a licensed attorney before using it.
 ## Labels and verification endings
 
 - **Quick.** Label: `Unverified against current sources`. End: `Verification: none this request. Unverified against current sources. Reference files current as of <date>. Citations in your document were not checked (quick mode).`
-- **Intermediate.** Label: `quick-verified`. End: `Verification: quick-verified. N sources opened and confirmed; M marked unverified; K not found. Main failure cause: <e.g. site down / search limit hit / none>.`
+- **Intermediate.** Label: `quick-verified`. End: `Verification: quick-verified. N sources opened and confirmed; M marked unverified; K not found. Main failure cause: <e.g. site down / search limit hit / none>.` When the input changed mid-run, add: `Earlier input: <areas researched against an earlier input, and which were re-run>.`
 - **Deep.** Label: `deep-verified`. End with the full note:
 ```
 Verification note
@@ -69,6 +69,7 @@ Results: confirmed a · corrected b · removed c · unverified d · not found e
 Corrections: <one line each>
 Conflicts between sources: <or "none seen">
 Not checked: <what, and why: site down, CAPTCHA, search limit hit>
+Earlier input: <areas researched against an earlier input, and which were re-run> (only when the input changed mid-run)
 ```
 
 ## Citation forms

@@ -36,7 +36,7 @@ Paths below are relative to this skill's folder. Terms follow the glossary in `.
 
 ### 1. Intake and live-matter screen
 
-Take the input (pasted text, a file path, or a described situation), and read it in full. Then check whether this is a **live matter**:
+Take the input (pasted text, a file path, or a described situation), and read it in full. A PDF the Read tool can't read, such as a scan, an encrypted file, or a machine without `pdftoppm`, goes through `references/reading-input.md`. Then check whether this is a **live matter**:
 - a lawsuit or arbitration filed, or threatened in writing;
 - a cease-and-desist or demand letter received;
 - a government charge, subpoena or investigation;
@@ -46,6 +46,17 @@ Take the input (pasted text, a file path, or a described situation), and read it
 If any of these is true, stop. Say plainly that this needs a licensed attorney now, write no memo, and offer only the attorney finder (step 7).
 
 *Done when* the input is read and the screen is clear, or the request has been routed to step 7.
+
+**When the input changes mid-run.** A new or replacement document can arrive after step 3, for example the real agreement replacing a stand-in. When it does, the new document becomes the input. Re-scope before going on:
+1. Read it in full and re-run the live-matter screen. Re-check the end goal against it too.
+2. Redo the step 3 pre-fill from its clauses: governing law, forum, signing date, occupation and pay. Ask Grant only about what changed. A changed applied state or backup goes back through the step 3 confirmation.
+3. For each legal area already researched, compare the new clauses with what the research covered:
+   - an area whose law still applies to the new clauses keeps its research;
+   - an area with a new clause type, a changed state or a materially different term gets that slice re-run, or is listed as a gap if time has run out.
+   Every authority the memo will cite still goes to the verifier.
+4. Tell Grant in one line which areas were kept and which were re-run.
+
+The memo analyzes the new document. Its verification note records the change on its "Earlier input" line (`templates/memo.md`).
 
 ### 2. End goal, mode and depth
 
@@ -94,6 +105,8 @@ Read `references/choice-of-law.md`, which holds the decision procedure, the unce
 ### 4. Research at the chosen depth
 
 Aim the research at the end goal: what law helps reach it, what blocks it, and what levers exist, such as clauses to strike or narrow, carve-outs, documentation, or timing. Give deep subagents the goal in generic legal terms. Like everything else, it stays out of search queries in Grant's own words.
+
+If a new or replacement document arrives while research runs, stop and re-scope as in step 1, "When the input changes mid-run", before writing anything.
 
 Load the reference files for each legal area the input touches: `references/insider-theft.md`, `references/restrictive-covenants.md`, `references/employee-contracts.md`, and `references/adjacent-fields.md` for the adjacent issues. Each has Federal, Indiana and South Carolina sections.
 
