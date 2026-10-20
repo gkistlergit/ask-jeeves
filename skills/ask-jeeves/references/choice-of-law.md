@@ -156,7 +156,7 @@ Confirm the applied state with a licensed attorney before relying on this.
 - Use Part 4 for the "Where they differ" rows when the pair is IN and SC.
 - **Confirmation:** one AskUserQuestion: *Confirm <primary>* / *Use <backup> instead* / *Primary with backup notes* / *Other state*. **No research starts until the user answers**, even when the state was passed as an argument.
 - **Primary with backup:** apply the primary throughout; where the backup would change a risk's outcome, add a short "Under <backup>: …" note in that risk's Law cell and in State applied.
-- **Any other state:** use Part 3 only to flag likely issues, then research at the chosen depth; quick mode refuses a state without a reference file.
+- **Any other state:** use Part 3 only to flag likely issues, then research at the chosen depth; quick mode refuses a state without a reference file unless it has a slim state card (`references/state-cards/<ST>.md`).
 
 ## 3. Non-compete status: 50 states + DC (as of 2026-10-20)
 
