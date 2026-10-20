@@ -1,6 +1,6 @@
 # Adjacent fields of law: ranking
 Type: research
-Status: open
+Status: claimed
 Blocked by:
 Findings: research/05-adjacent-fields.md
 

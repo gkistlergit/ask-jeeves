@@ -25,3 +25,11 @@
 **Location option** — where the attorney search centers: live location (with consent), a typed ZIP, the saved home location (city and ZIP only), or Aiken, SC.
 
 **Mismatch** — a location option outside the applied state, which triggers a question about which license matters.
+
+**Request** — one `/ask-jeeves` invocation: its input (pasted text, a file, or a described situation), mode, applied state and depth.
+
+**Reference file** — a dated, built-in summary of verified law for one legal area, with a section per covered jurisdiction.
+
+**Candidate state** — the state the selection round proposes before Grant confirms it as the applied state.
+
+**Plain-language pass** — the step that simplifies the memo's legalese before it is shown. Quotes, citations and defined terms are never changed by it.

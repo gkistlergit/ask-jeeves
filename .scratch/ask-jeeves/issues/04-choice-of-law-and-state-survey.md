@@ -1,6 +1,6 @@
 # Choice of law, forum, and a 50-state covenant survey
 Type: research
-Status: open
+Status: claimed
 Blocked by:
 Findings: research/04-choice-of-law.md
 
