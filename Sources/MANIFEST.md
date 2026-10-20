@@ -50,3 +50,4 @@
 | CA | 2025-26-session | Sources/CA/2025-26-session/html (downloads.leginfo.legislature.ca.gov pubinfo_2025.zip dated 2026-10-19; only the 346 needed section files read by byte range) | 2026-10-20 | xml | 22 |
 | NJ | P.L.2026-c50 | Sources/NJ/P.L.2026-c50/html/STATUTES.TXT (pub.njleg.gov/statutes STATUTES-TEXT.zip, "updated through P.L.2026, c.50"; employment chapters split into text/) | 2026-10-20 | txt | 10 |
 | PA | fetched-2026-10-20 | Sources/PA/fetched-2026-10-20/pa-statutes.json (palegis.us iFrame statute views, saved from a browser; curl gets 403) | 2026-10-20 | html | 12 |
+| TN | 2026-PC934 | ~/Downloads/TN-pc0934 (publications.tnsosfiles.com/acts/114/pub/pc0934.pdf, Public Chapter 934 of 2026 only; the code itself is on Lexis) | 2026-10-20 | pdf | 1 |

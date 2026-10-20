@@ -16,7 +16,7 @@ Done when every listed state is either in `Sources/MANIFEST.md` or has a written
 
 ## Answer
 
-Resolved 2026-10-20. Four more states are on disk: AL, CA, NJ and PA. AK and IL were already fetched by the download agents and needed only MANIFEST rows. Six states are blocked within the rules, each with one step left for Grant. `Sources/MANIFEST.md` now has a row for every edition on disk: 48 rows across 45 states plus DC.
+Resolved 2026-10-20. Four more states are on disk: AL, CA, NJ and PA, plus Tennessee's 2026 non-compete act. AK and IL were already fetched by the download agents and needed only MANIFEST rows. Six states are blocked within the rules, each with one step left for Grant. `Sources/MANIFEST.md` now has a row for every edition on disk: 49 rows across 45 states plus DC.
 
 | State | Route used | Edition | Status |
 |---|---|---|---|
@@ -31,7 +31,7 @@ Resolved 2026-10-20. Four more states are on disk: AL, CA, NJ and PA. AK and IL 
 | OH | none | none | **blocked: robots.txt** (`codes.ohio.gov`: `User-agent: * Disallow: /`) |
 | OK | none | none | **blocked: robots.txt** (`oklegislature.gov`: `Disallow: /` for `*`; `oscn.net` is behind a Cloudflare Turnstile check) |
 | PA | palegis.us statute views (`view-statute?iFrame=true&txtType=HTM…`), read in a browser. robots.txt has no `*` group and the Legal Notices page sets no use limits; curl gets 403. Saved as one bundle with Grant's OK. | fetched-2026-10-20 | done: 12 files (12 Pa.C.S. ch. 53; 18 Pa.C.S. chs. 39, 76; 42 Pa.C.S. ch. 73; Acts 222/1955 PHRA, 329/1961 WPCL, 5/1968 MWA, 387/1968 UTPCPL, 286/1978, 169/1986 Whistleblower, 94/2005 breach, 74/2024 health-care non-competes) |
-| TN | Pub. Ch. 934 (2026) PDF loads in a browser at publications.tnsosfiles.com (curl gets a CloudFront 403), but the save didn't complete. The code itself is only on LexisNexis. | none | **blocked: Lexis terms; PDF save pending** |
+| TN | Pub. Ch. 934 (2026, the non-compete law: 50-1-210 et seq.) PDF, saved from publications.tnsosfiles.com in a browser (curl gets a CloudFront 403). The code itself is only on LexisNexis. | 2026-PC934 (Act only) | Act done; **code blocked: Lexis terms** |
 
 ### Grant's next step for each blocked state
 
@@ -42,8 +42,7 @@ After saving, run `scripts/ingest-code.sh <ST> <edition> <folder>`. It writes `t
   - GA: https://www.lexisnexis.com/hottopics/gacode/
   - MS: https://www.lexisnexis.com/hottopics/mscode/
   - TN: https://www.lexisnexis.com/hottopics/tncode/
-- **TN Pub. Ch. 934 (2026 non-compete law).** Open https://publications.tnsosfiles.com/acts/114/pub/pc0934.pdf and save it (132 KB).
 - **OH.** robots.txt bars all automated access, so only a person can save these. Open https://codes.ohio.gov/ohio-revised-code/chapter-1333 and save the page into `~/Downloads/OH-ORC/`; repeat for chapters 2913, 2307, 4113, 4111, 4112, 4101, 2711, 1345 and 1349.
 - **OK.** Same robots bar. At https://www.oklegislature.gov, open "Oklahoma Statutes" and save Titles 15, 78, 40, 21, 25, 12, 24 and 85A into `~/Downloads/OK-statutes/`, then trim to the sections in slice 5.
 
-Methods that did not work and should not be retried: the built-in browser pane cannot save files, and the CA, OSCN and tnsosfiles bot checks were not bypassed.
+Methods that did not work and should not be retried: the built-in browser pane cannot save files; the Lexis public portal sent an automated Chrome tab to a sign-in error page ("Unable to Complete Your Request") twice, so Grant opens those links himself; and the CA, OSCN and tnsosfiles bot checks were not bypassed.
