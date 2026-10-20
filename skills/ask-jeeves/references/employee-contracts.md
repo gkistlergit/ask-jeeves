@@ -262,3 +262,7 @@ Scope: offer letters, at-will, IP and invention assignment, device, BYOD and ret
 - Whether the 4th Circuit holds (not dicta) that FLSA settlements need court or DOL approval.
 - Whether *Med-1* is published; reporter cites for *Bruce*, *Barron*, *Lampo*, *Poynter*, *Heraeus*.
 - Negative statute scans not re-run on 2026-10-20: Indiana social-media/password and expense reimbursement, Indiana wage-release scan; SC titles beyond 39 and 41 for inventions.
+
+## Changes since last as-of
+
+None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`). Current as of 2026-10-20.

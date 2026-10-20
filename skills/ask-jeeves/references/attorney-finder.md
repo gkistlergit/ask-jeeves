@@ -287,3 +287,7 @@ A. <Name>, <Firm> (<city>). Missing: <no review dated within 24 months | one pla
 - Settled 2026-10-20: device location comes from the bundled Jeeves Location app (§1 step 2), verified on this Mac. The hand-built Shortcut route is untested. [UNVERIFIED: research 07]
 - IndyBar's client fee and Hamilton County coverage; the SCLS office for Aiken County; an SC limited-scope appearance rule. [UNVERIFIED: research 06 open questions 4–5]
 - Whether handing over any Indiana lookup URL breaches "link to". The help page is the conservative choice. [UNVERIFIED: research 06 open question 2]
+
+## Changes since last as-of
+
+None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`). Current as of 2026-10-20.

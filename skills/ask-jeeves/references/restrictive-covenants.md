@@ -220,3 +220,7 @@ Covers non-competes, customer and employee non-solicits, no-hire clauses, confid
 10. FTC: any action after 2026-06-22? Status of the January 2025 FTC/DOJ worker guidelines?
 11. Garden leave: no IN or SC authority found.
 12. Source quality: Indiana cases come from FindLaw copies, not an official host; *Dudley*, *Ackerman*, *MailSource*, *Riedman* and *Kerrigan* are known only as quoted in later opinions.
+
+## Changes since last as-of
+
+None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`). Current as of 2026-10-20.

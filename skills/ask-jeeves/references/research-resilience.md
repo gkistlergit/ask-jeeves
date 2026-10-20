@@ -16,7 +16,7 @@ WebSearch calls count against one budget shared by the main thread and every sub
 
 ## 2. Fallback chain per source type
 
-**Step 0, the local statute library (statutes only).** Before any web lookup of a state statute, read `~/Developer/ask-jeeves/Sources/MANIFEST.md`. If the state has an edition there, grep its `Sources/<ST>/<edition>/text/` for the section and cite it as `<cite> (<edition> <State> Code, official download)`. Say so when the edition predates a change you found. The library is local and gitignored, so it may be missing on another machine; then go straight to the chain below.
+**Step 0, the local statute library (statutes only).** Before any web lookup of a state statute, read `~/Developer/ask-jeeves/Sources/MANIFEST.md`. If the state has an edition there, grep its `Sources/<ST>/<edition>/text/` for the section and cite it as `<cite> (<edition> <State> Code, official download)`. Say so when the edition predates a change you found. An edition downloaded more than 12 months ago is a lead only (§7): confirm the section on the official site before citing it. The library is local and gitignored, so it may be missing on another machine; then go straight to the chain below.
 
 Try each source once. If it's blocked, down, empty or behind a CAPTCHA, move to the next source. When the chain runs out, mark the claim [UNVERIFIED] with the reason. **Never bypass a CAPTCHA, a login or a human-verification page.**
 
@@ -59,3 +59,21 @@ A citation earns `[NOT FOUND: possibly fabricated]` only after all of these come
 4. a check that the reporter volume and page fit the stated year and court. For example, look at what the cited page actually holds, the way 258 N.E.3d 412 turned out to hold Ohio entries.
 
 Google Scholar blocks WebFetch. Use it only through WebSearch result snippets. If steps 1 to 3 can't be reached (site down, CAPTCHA, search limit hit), mark the citation `[UNVERIFIED: could not check]`, never NOT FOUND. A real case must never be called fake because the tools failed.
+
+## 7. Age rule and the refresh queue
+
+**12-month rule.** A reference file whose `as_of` is more than 12 months before today, or a `Sources/` edition downloaded more than 12 months ago, is **stale**. Refreshes run every mid-July and mid-January, so a stale file means a refresh was missed.
+- *Quick:* still use it, but the memo label gains `reference may be out of date` (`templates/memo.md`).
+- *Intermediate and deep:* treat a stale file as leads only. Re-check every point you take from it on a live source, and spend searches there first. A point you can't re-check is `[n, UNVERIFIED: reference file stale]`.
+
+**Refresh queue.** When an intermediate or deep run finds a law change dated after a reference file's `as_of` (a new statute, amendment, repeal, rule or controlling decision), flag it in the verification line (`Reference out of date: <file>, <change>`) and append one line to `~/.claude/ask-jeeves-refresh-queue.md`, creating the file if needed:
+
+```
+- <today, YYYY-MM-DD> | references/<file>.md | <the change, in generic legal terms> | <official source URL>
+```
+
+The line names the law only: never a party, employer, person or any text from the input. A weekly scheduled task refreshes queued files (`docs/refresh-procedure.md` in the repo) and clears the lines it handles. Don't edit reference files during a run; the installed copy is pinned.
+
+## Changes since last as-of
+
+None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`). Current as of 2026-10-20.

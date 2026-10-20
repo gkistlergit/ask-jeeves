@@ -216,3 +216,7 @@ One line each in the memo's Adjacent issues. No analysis.
 - H-1B: whether court orders block the $100,000 proclamation fee (secondary only); outside built-in scope.
 - Federal breach-notice rules (sector rules such as HIPAA or GLBA) were not researched for this file.
 - Opinion-frequency counts are partial (CourtListener quota); the ranking rests on legal intersection and EEOC and BLS data.
+
+## Changes since last as-of
+
+None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`). Current as of 2026-10-20.

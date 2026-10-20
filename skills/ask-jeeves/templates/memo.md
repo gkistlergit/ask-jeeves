@@ -59,8 +59,9 @@ Run it past a licensed attorney before using it.
 
 ## Labels and verification endings
 
-- **Quick.** Label: `Unverified against current sources`. End: `Verification: none this request. Unverified against current sources. Reference files current as of <date>. Citations in your document were not checked (quick mode).`
+- **Quick.** Label: `Unverified against current sources`. End: `Verification: none this request. Unverified against current sources. Reference files current as of <date>. Citations in your document were not checked (quick mode).` When a reference file is stale (more than 12 months old, `references/research-resilience.md` §7), the label becomes `Unverified against current sources; reference may be out of date`, and the end adds `Reference may be out of date: <file>, as of <date>.`
 - **Intermediate.** Label: `quick-verified`. End: `Verification: quick-verified. N sources opened and confirmed; M marked unverified; K not found. Main failure cause: <e.g. site down / search limit hit / none>.` When the input changed mid-run, add: `Earlier input: <areas researched against an earlier input, and which were re-run>.`
+- **Intermediate and deep, newer law found:** add `Reference out of date: <file>, <change>; queued for refresh.` to the ending or note.
 - **Deep.** Label: `deep-verified`. End with the full note:
 ```
 Verification note

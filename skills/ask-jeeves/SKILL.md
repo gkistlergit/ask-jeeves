@@ -110,6 +110,7 @@ If a new or replacement document arrives while research runs, stop and re-scope 
 
 Load the reference files for each legal area the input touches: `references/insider-theft.md`, `references/restrictive-covenants.md`, `references/employee-contracts.md`, and `references/adjacent-fields.md` for the adjacent issues. Each has Federal, Indiana and South Carolina sections.
 
+- **Before any depth:** apply the 12-month rule in `references/research-resilience.md` §7 to each reference file you load. A stale file adds `reference may be out of date` to a quick memo's label and is leads only at intermediate and deep.
 - **Quick:** reference files only, with no web calls. Cite only what the files contain.
 - **Intermediate:**
   - Use at most 8 WebSearch calls in total. Spend them on: changes since each file's `as_of`, skipped when `as_of` is within the last 30 days (say so in the verification line); the applied state, if it has no reference file; and spot-checks.
@@ -133,7 +134,9 @@ Load the reference files for each legal area the input touches: `references/insi
   - No record anywhere (official site, case.law and Google Scholar all empty): mark it `[NOT FOUND: possibly fabricated]`, keep it out of the reasoning, and list it in the Bottom line if the input relied on it. Never substitute a similar real case.
 - *Quick* marks input citations `[NOT CHECKED: quick mode]`.
 
-*Done when* every citation the memo will carry has a status (confirmed, from reference file, UNVERIFIED or NOT FOUND), and every input citation has one too.
+**Newer law than a reference file (intermediate and deep).** Flag it in the verification line and append it to the refresh queue as `references/research-resilience.md` §7 says.
+
+*Done when* every citation the memo will carry has a status (confirmed, from reference file, UNVERIFIED or NOT FOUND), every input citation has one too, and any newer law found is queued.
 
 ### 5. Write the memo
 

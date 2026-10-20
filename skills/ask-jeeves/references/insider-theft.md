@@ -222,3 +222,7 @@ Scope: an employee or other insider taking trade secrets, data or IT assets. Sto
 - No federal civil conversion or data-theft claim was researched; retained devices are assumed to be state-law conversion or replevin.
 - Choice of law for an Indiana employer and an SC-resident employee (IUTSA vs. SCTSA) belongs to the choice-of-law reference.
 - FTC non-compete rule and NLRB memos are left to the restrictive-covenants reference.
+
+## Changes since last as-of
+
+None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`). Current as of 2026-10-20.
