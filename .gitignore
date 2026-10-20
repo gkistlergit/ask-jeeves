@@ -1,1 +1,4 @@
-sources/
+/[Ss]ources/*
+![Ss]ources/README.md
+![Ss]ources/MANIFEST.md
+.DS_Store

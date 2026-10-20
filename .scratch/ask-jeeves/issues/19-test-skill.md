@@ -1,6 +1,6 @@
 # Test the skill
 Type: task
-Status: open
+Status: claimed
 Blocked by: 18
 
 ## Question
