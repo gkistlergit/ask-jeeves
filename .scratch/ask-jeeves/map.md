@@ -47,6 +47,7 @@ An `ask-jeeves` skill whose source lives in this repo at `skills/ask-jeeves/` (G
 - [Scanned and encrypted PDF input](issues/24-pdf-input.md): `references/reading-input.md` plus `scripts/pdf-text.swift` read unreadable PDFs locally: PDFKit for the text layer, tesseract OCR for image-only pages. Checked on two fictional fixtures.
 - [Test the skill](issues/19-test-skill.md): every done-when test passes, the attorney finder on all four locations included (0 qualified at each; reported honestly). Live location now uses a bundled Jeeves Location app instead of the Shortcut, because a bare script gets no macOS prompt.
 - [Approve and deploy](issues/20-approve-and-deploy.md): live 2026-10-20. ask-jeeves#1 merged (`355f95d`), pinned in claude-global-settings `skillPackages` (#60), and `~/.claude/skills/ask-jeeves` linked to the vendored pin. The one-package install left the unmanaged contract-drafter alone.
+- [Attorney-finder recency rule](issues/25-attorney-finder-recency.md): recency comes from any one dated source, and mirror sites count as the platform they copy. A lettered "strong, not fully confirmed" tier (up to 3) fills in when fewer than 3 qualify, each entry naming what it misses. Live at `933fc5a`.
 
 ## Not yet specified
 

@@ -1,6 +1,6 @@
 # Remaining state codes: find a way to download them
 Type: task
-Status: open
+Status: claimed
 Blocked by: 19
 
 ## Question
