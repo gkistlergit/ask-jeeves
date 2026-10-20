@@ -13,6 +13,10 @@ Sources/<ST>/<edition>/text/   plain text, one file per title, made by scripts/i
 
 ## Adding a state
 
+**Download only what's needed.** Only states on the *download short list* need a local copy: those whose official code site our tools can't read. The state-codes reference files mark them; Indiana is one. Download **only the employment titles** listed for that state (non-compete, trade secrets, wage payment, computer crime), not the whole code. Prefer **HTML or XML over PDF**. Leave the download in `~/Downloads`; the script reads it in place and records the path.
+
+**Refresh yearly.** A scheduled task (`ask-jeeves-annual-code-refresh`, July 15) lists stale editions and short-list states with no local copy.
+
 1. Download the official code from the state's site. `skills/ask-jeeves/references/state-codes-*.md` lists where each state publishes it.
 2. Put the download anywhere. Then run:
    ```bash
