@@ -45,3 +45,5 @@ Not an endorsement. Jeeves does not contact or hire attorneys; you choose and co
 ```
 
 **Privacy.** Search queries contain only the city or ZIP plus terms like "employment lawyer". They never contain party names, contract text or the street address. Results aren't saved unless Grant asks.
+
+**Clarified 2026-10-20 (build):** the query-privacy rule covers Grant and the parties to his matter. Discovery queries use the city or ZIP plus generic terms. Review queries for a shortlisted attorney may name that attorney or firm plus the city, since attorney names are public professional information. They count toward the search budget.

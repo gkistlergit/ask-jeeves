@@ -1,4 +1,4 @@
-Design record for the `ask-jeeves` skill. The skill itself lives in the private `claude-global-settings/skills/ask-jeeves`.
+Design record for the `ask-jeeves` skill. The skill itself lives here in `skills/ask-jeeves/`, installed through claude-global-settings' skillPackages manifest.
 
 - The wayfinder map is `.scratch/ask-jeeves/map.md` and its tickets are `.scratch/ask-jeeves/issues/`. The tracker conventions are in `docs/agents/issue-tracker.md`.
 - Research findings are in `research/`. The glossary is `CONTEXT.md`.

@@ -4,7 +4,7 @@ Labels: wayfinder:map
 
 ## Destination
 
-An `ask-jeeves` skill installed at `claude-global-settings/skills/ask-jeeves` (symlinked into `~/.claude/skills/`) and invocable as `/ask-jeeves`. It passes every done-when test in the brief: the state-selection test, three depth memos on a sample offer letter, a caught fake citation, and the attorney finder on all four location options. It is backed by dated, deep-verified federal, Indiana and South Carolina research on the three priority fields. This map records each decision and lists the open items.
+An `ask-jeeves` skill whose source lives in this repo at `skills/ask-jeeves/` (Grant, 2026-10-20). It is installed through `claude-global-settings`' `skillPackages` manifest, pinned to the deployed commit and symlinked into `~/.claude/skills/`, and invocable as `/ask-jeeves`. It passes every done-when test in the brief: the state-selection test, three depth memos on a sample offer letter, a caught fake citation, and the attorney finder on all four location options. It is backed by dated, deep-verified federal, Indiana and South Carolina research on the three priority fields. This map records each decision and lists the open items.
 
 ## Notes
 
@@ -15,7 +15,7 @@ An `ask-jeeves` skill installed at `claude-global-settings/skills/ask-jeeves` (s
 - **Deep verification standard applies to design research.** Every source, case, statute and regulation is opened and confirmed real, and each claim is checked against it. Primary and authoritative sources are preferred, weak ones are flagged, and conflicts are noted. Anything unconfirmed is removed or marked UNVERIFIED. Each research file ends with a verification note. A separate verifier agent re-opens every source after the research agent finishes.
 - **Quotes under 15 words.** Write page references as "pg. N".
 - **HITL stops:** every grilling and prototype ticket goes to Grant, who answers for himself. Other stops: the pre-build summary (17) and the pre-deploy go (20). Research tickets run AFK.
-- **Privacy:** this repo is **public**. Grant's home street address never appears in this repo, in URLs or in public queries. Searches use the city or ZIP only (Noblesville, IN 46060). The skill itself lives in the private `claude-global-settings` repo.
+- **Privacy:** this repo is **public**. Grant's home street address never appears in this repo, in URLs or in public queries. Searches use the city or ZIP only (Noblesville, IN 46060). The skill itself also lives here, in `skills/ask-jeeves/`, so it is public too.
 - **Free to run:** no paid APIs or metered services. Use web search and fetch only.
 - **Prior research:** `~/Developer/ai-solutions-llc-research-indiana-ip-law` and `~/Developer/ai-solutions-llc-research-attorney-shortlist` may be used as leads only. Re-verify everything and copy nothing in unverified.
 - **Research record:** findings live in `research/` on main, kept as the design record. This overrides wayfinder's throwaway-branch default because Grant asked to keep the research files.
@@ -24,6 +24,7 @@ An `ask-jeeves` skill installed at `claude-global-settings/skills/ask-jeeves` (s
 
 ## Decisions so far
 
+- Install location changed (Grant, 2026-10-20): the skill's source moves from `claude-global-settings/skills/ask-jeeves` to this repo at `skills/ask-jeeves/`. Deploy pins this repo's merged commit in `claude-global-settings/manifest.json` `skillPackages` and removes the placeholder there. This repo is public, so the skill carries no street address (home is Noblesville, IN 46060 only).
 - Charting round: the skill is named `ask-jeeves`. It installs in `claude-global-settings/skills` with a symlink. The map and research live in `gkistlergit/ask-jeeves`. Prior research is used as leads only. Destination and execution override confirmed. Free-to-run confirmed.
 - [Skill structure and request flow](issues/08-skill-structure.md): input, then mode+depth in one round, then state selection ending in confirmation. Arguments pre-answer but never skip the state confirmation. References are per legal area with Federal/IN/SC sections and `as_of`/`verified` frontmatter; the memo prints the oldest as-of date. Quick is references-only, intermediate may use subagents when needed, deep uses one research subagent per area plus a verifier. A humanizer plain-language pass runs on the memo prose before it is shown, quotes and citations verbatim. Attorney finder is opt-in after the memo, run as a subagent. `disable-model-invocation: true`.
 - [Live device location: what tool exists](issues/07-live-location-tool.md): neither Claude Code nor the desktop app has a location tool. Primary is a hand-built "Jeeves Location" Shortcut via `shortcuts run`, returning city and ZIP only, after AskUserQuestion consent and the Shortcuts Allow Once prompt. The fallback is ip-api, disclosed as approximate: plain HTTP, non-commercial. Typed entry is always offered. Untested: whether the prompt appears when the shortcut runs from the CLI.
