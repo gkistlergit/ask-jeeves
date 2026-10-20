@@ -1,6 +1,6 @@
 # Build the skill
 Type: task
-Status: open
+Status: claimed
 Blocked by: 17
 
 ## Question
