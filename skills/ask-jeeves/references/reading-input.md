@@ -32,3 +32,7 @@ The output folder stays in the scratchpad. Save the text anywhere else only when
 ## Checked
 
 On 2026-10-20 the script read the two fictional fixtures `fixtures/scanned-contract.pdf` and `fixtures/encrypted-contract.pdf` (built by `fixtures/make-pdf-fixtures.swift`). Both came back matching `fixtures/mismatch-contract.md` word for word. pypdf fails on the encrypted fixture without `cryptography`, and the scanned fixture has no text layer, so both reproduce the original failures.
+
+## Changes since last as-of
+
+None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`).

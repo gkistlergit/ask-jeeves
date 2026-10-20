@@ -74,3 +74,7 @@ How to read this file:
 - 49 cells UNVERIFIED. 19 of them have the cite confirmed on a mirror: AL 2, AK 3, AR 3, CA 4, GA 4, MS 3.
 - No WebFetch-readable official statute text: AL, AK, AR, GA, IL, MS. Indiana is readable only through its offline download, and California only through its bulk dump.
 - 7 of the 25 WebSearch calls were used.
+
+## Changes since last as-of
+
+None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`).

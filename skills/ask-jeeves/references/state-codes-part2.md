@@ -106,3 +106,7 @@ Each row was checked on 2026-10-20 with WebFetch, plus `curl -sL -m 20 -o /dev/n
 - OK: https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os78.pdf ; https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os40.pdf ; https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os21.pdf
 - WY: https://wyoleg.gov/statutes/compress/title01.pdf ; https://wyoleg.gov/statutes/compress/title06.pdf ; https://wyoleg.gov/statutes/compress/title27.pdf ; https://wyoleg.gov/statutes/compress/title40.pdf
 - All other cells: the URL or pattern in the row, opened on 2026-10-20.
+
+## Changes since last as-of
+
+None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`).

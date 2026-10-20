@@ -258,3 +258,7 @@ Failed or pending (not law): NY S9759, RI S2160, SC H.4767, PA HB 2558 (one cham
 - No IN or SC case on choice of law for UTSA claims (§ 145 vs lex loci).
 - Official-site checks still missing for AL, AK, GA, MS; NM 2026 listing past HB 252; RI House status; HI SB 1161.
 - Not opened: *Kuykendall* (NC), *Hess* (PA), *Summits 7* (VT), *Reddy* (WV), *Team IA*, *Nucor*; official reporter cites for *Heraeus*, *Perdue*, *Waadah*, *DraftKings*.
+
+## Changes since last as-of
+
+None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`).
