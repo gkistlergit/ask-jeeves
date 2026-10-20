@@ -1,6 +1,6 @@
 # Test the skill
 Type: task
-Status: claimed
+Status: resolved
 Blocked by: 18
 
 ## Question
@@ -19,3 +19,21 @@ Still claimed. All tests except the attorney finder have passed; details are in 
 - **New gaps, ticketed:** [Input document changes mid-run](23-input-changes-mid-run.md) and [Scanned and encrypted PDF input](24-pdf-input.md).
 
 Done when: the three remaining locations have each run, with results in `research/test-results.md`. Then set `Status: resolved` and add the context pointer to the map.
+
+## Answer
+
+All done-when tests pass (2026-10-20). Details are in `research/test-results.md`.
+- **Memos:** quick, intermediate and deep each passed. The planted fake citation was caught at intermediate and deep.
+- **State mismatch:** passed live, including a deep run on Grant's real goal.
+- **Attorney finder:** all four location options ran.
+  - Home, Aiken and live location each found 0 who qualify. Each run reported that honestly, with budget routes and near-misses.
+  - The Aiken mismatch flag and question worked.
+  - Typed entry resolved with no network call.
+  - Live location now uses the bundled Jeeves Location app (skill/v1 2dbba99), which replaced the untested Shortcut design from [Live device location: what tool exists](07-live-location-tool.md).
+
+Gaps found during testing were fixed:
+- [Input document changes mid-run](23-input-changes-mid-run.md)
+- [Scanned and encrypted PDF input](24-pdf-input.md)
+- the location app
+
+Open for Grant, not blocking deploy: [Attorney-finder recency rule](25-attorney-finder-recency.md).

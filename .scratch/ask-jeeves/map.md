@@ -45,6 +45,7 @@ An `ask-jeeves` skill whose source lives in this repo at `skills/ask-jeeves/` (G
 - [End goal: ask it and let it steer the memo](issues/21-end-goal.md): Grant added this requirement. Jeeves asks for the end goal first. It steers the research and risk ranking, adds a Goal line, a reachability rating and a **Path to your goal** section to the memo, and aims every recommendation and creative option at it. It never overrides the safeguards.
 - [Input document changes mid-run](issues/23-input-changes-mid-run.md): a new or replacement document triggers a re-scope. Jeeves re-reads it, re-runs the screen and the state pre-fill, then keeps or re-runs each area's research. The verification note gains an "Earlier input" line.
 - [Scanned and encrypted PDF input](issues/24-pdf-input.md): `references/reading-input.md` plus `scripts/pdf-text.swift` read unreadable PDFs locally: PDFKit for the text layer, tesseract OCR for image-only pages. Checked on two fictional fixtures.
+- [Test the skill](issues/19-test-skill.md): every done-when test passes, the attorney finder on all four locations included (0 qualified at each; reported honestly). Live location now uses a bundled Jeeves Location app instead of the Shortcut, because a bare script gets no macOS prompt.
 
 ## Not yet specified
 
