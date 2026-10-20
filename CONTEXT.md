@@ -41,3 +41,7 @@
 **Plain-language pass** — the step that simplifies the memo's legalese before it is shown. Quotes, citations and defined terms are never changed by it.
 
 **End goal** — the outcome Grant wants from a request, in his words (e.g. keep sole ownership of apps he built on his own time). It is asked first and steers the research, risk ranking, recommendations and creative options. It never overrides the safeguards.
+
+**Stress test** — a request whose input is a draft from Grant's `contract-drafter` skill. Jeeves reads the draft from the other side by default, to find what a counterparty or court would attack before anyone signs.
+
+**Handoff** — step 8: passing a memo's findings to `contract-drafter` as a drafting brief, opt-in only.

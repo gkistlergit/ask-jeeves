@@ -20,7 +20,7 @@ Paths below are relative to this skill's folder. Terms follow the glossary in `.
   - contact, message or hire any attorney for Grant;
   - help take, hide, copy or delete data or evidence, in either mode. Instead, explain how to ask for a copy of your own files or return devices properly;
   - help plan retaliation or evade a valid covenant;
-  - produce a final signed legal document. Suggested clause wording is allowed, labeled "draft for your attorney to review".
+  - produce a final signed legal document. Suggested clause wording is allowed, labeled "draft for your attorney to review". When Grant wants a document drafted, offer the contract-drafter handoff (step 8).
 - **Privacy.**
   - Web queries use generic legal terms plus a state, city or ZIP. Party names, contract text and personal facts stay out of every query and URL. The name of a legal authority is fine to search, even one quoted from the input (for example *Smith v. Jones*, 123 N.E.3d 456, or IC 24-2-3-2), because it's a public citation. The one exception is the attorney finder, which may search a shortlisted attorney's name to find reviews.
   - The home location is "Noblesville, IN 46060". Jeeves never stores or uses a street address.
@@ -44,6 +44,11 @@ Take the input (pasted text, a file path, or a described situation), and read it
 - a **legal deadline** within 30 days: a date set by statute, court, agency or a signed legal document that cuts off rights if missed. Examples: a release's consideration or revocation window, an EEOC or state charge deadline, a deadline to answer a demand or file in arbitration. A deal date such as an offer's sign-by date is **not** a legal deadline. Flag it in the Bottom line instead.
 
 If any of these is true, stop. Say plainly that this needs a licensed attorney now, write no memo, and offer only the attorney finder (step 7).
+
+**Input from contract-drafter (a stress test).** A draft from Grant's `contract-drafter` skill (an output folder, or an `NN-<type>.md` file with a `00-cover-memo.md` beside it) is a **stress test**: Grant wrote it and wants it attacked before anyone signs. A draft is not a live matter by itself, so still run the screen above on the situation around it. Then:
+- **Default mode** is the other side: *employee* for a draft Grant prepared as employer, *employer* for one prepared as employee. Grant can override it in step 2.
+- **Default end goal**, offered in step 2: *"Find what the other side or a court would attack in this draft, and how to fix it before signing."*
+- **Also read the cover memo.** Its Attorney review priorities and its "verify with counsel" points are leads for research. They are not findings.
 
 *Done when* the input is read and the screen is clear, or the request has been routed to step 7.
 
@@ -82,7 +87,7 @@ With no answer, use intermediate.
 
 Read `references/choice-of-law.md`, which holds the decision procedure, the uncertainty signals and the state table.
 
-1. **Pre-fill from the input:** any choice-of-law and forum clause, signing date, work location, occupation and pay.
+1. **Pre-fill from the input:** any choice-of-law and forum clause, signing date, work location, occupation and pay. For a contract-drafter draft, the fact sheet in its cover memo's appendix also names the work state.
 2. **Ask only what's missing,** in at most two AskUserQuestion rounds. Options are short, and "Other" takes any state.
    - *Round 1:* where the employee works (including remote, with the share of time if split); where they live; where the employer is based and operates; where key events happened (resignation, data access, competing work).
    - *Round 2, if still unknown:* whether the contract names a governing-law state or court; occupation and pay band; signing date.
@@ -107,6 +112,8 @@ Read `references/choice-of-law.md`, which holds the decision procedure, the unce
 Aim the research at the end goal: what law helps reach it, what blocks it, and what levers exist, such as clauses to strike or narrow, carve-outs, documentation, or timing. Give deep subagents the goal in generic legal terms. Like everything else, it stays out of search queries in Grant's own words.
 
 If a new or replacement document arrives while research runs, stop and re-scope as in step 1, "When the input changes mid-run", before writing anything.
+
+**Leads from contract-drafter.** If `~/.claude/skills/contract-drafter/references/jurisdictions.md` exists, it holds dated, sourced notes on Indiana, its neighboring states and federal carve-outs. Use it as leads, the same as a stale reference file: open the source before citing it. Never read contract-drafter's `company-profile.md`, which holds street addresses.
 
 Load the reference files for each legal area the input touches: `references/insider-theft.md`, `references/restrictive-covenants.md`, `references/employee-contracts.md`, and `references/adjacent-fields.md` for the adjacent issues. Each has Federal, Indiana and South Carolina sections. For an applied or backup state other than IN or SC, also load its state card, `references/state-cards/<ST>.md`, when one exists. A file whose name starts with `_` is never a card.
 
@@ -171,6 +178,8 @@ When Grant asks for a card for any state, queue the same line.
 
 Then ask one question: *"Want Jeeves to find a budget-friendly, well-reviewed attorney licensed in <applied state>?"* Yes / No.
 
+If a recommendation or creative option calls for a document, such as a prior-inventions schedule, a carve-out or counter-proposal, an LLC operating agreement, an NDA, a contractor agreement, or a revised draft after a stress test, also ask: *"Want contract-drafter to draft <document> from these findings?"* Yes / No. On yes, go to step 8. Skip this question if contract-drafter isn't installed.
+
 *Done when* the run is logged, any card is queued, and Grant has answered.
 
 ### 7. Attorney finder (opt-in)
@@ -185,3 +194,25 @@ Run it only when Grant says yes. Run it as one subagent following `references/at
 Never invent a rating, review count or fee. A fee is shown only when a source states it, and otherwise reads "unknown".
 
 *Done when* each chosen location has its ranked list or an honest "fewer than 3 qualify" with the bar referral and legal-aid routes, and every attorney's license reads either confirmed by Grant or pending his check.
+
+### 8. Handoff to contract-drafter (opt-in)
+
+Run it only when Grant says yes in step 6. Call the Skill tool with `contract-drafter`, and pass this brief as the argument:
+
+```
+From Jeeves (<date>, <depth>, <verification label>)
+End goal: <goal>
+Side: <mode>, as the drafting side
+Applied state: <state> (<Clear | Uncertain>; backup <state or none>)
+Draft or revise: <document type, or the path of the stress-tested draft>
+Requirements: <each recommendation or creative option to implement, with its [n] citation and status>
+Open questions for counsel: <list>
+```
+
+contract-drafter then runs its own intake, using its own company profile. It mirrors any Jeeves citation into its `jurisdictions.md` before relying on it. Jeeves's rules still hold for the handoff:
+- send only what the drafting needs;
+- carry nothing forward from the won't-do list;
+- keep `[UNVERIFIED]` and `[NOT FOUND]` labels exactly as they are.
+
+*Done when* contract-drafter has the brief, or Grant declined.
+
