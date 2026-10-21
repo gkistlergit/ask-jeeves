@@ -65,6 +65,25 @@ Paused at Grant's request. Nothing is mid-flight.
 
 **Sonnet run (2026-10-20, Grant's go):** 6/7 passed, 2 of them on a retry after the first run showed no `Candidate state:` block. citation-intermediate failed: the fake cite was marked UNVERIFIED after a guessed court URL returned a 404. The suite also flagged "Indiana" vs "IN" as a mismatch. Both are fixed in ask-jeeves#10 (`dafb351`, pinned by claude-global-settings#78, reinstalled). citation-intermediate then re-ran on Sonnet and passed.
 
+**Cloud run (2026-10-21, Grant's go, Opus 5.5):** 3/5 cases passed, but this run can't close the ticket, because a Linux container runs the skill as chat Jeeves. It ran in a Claude Code cloud session on `5f46702` (same skill tree as `dafb351`), with `--model claude-opus-5-5`. Grant picked that model because plain `claude -p` there runs Sonnet 5.5. The PDF cases and the `pdf-text.swift` checks are macOS only, and passed on the Mac 2026-10-20.
+
+| Check | Result | Detail |
+|---|---|---|
+| template sections match the suite | pass | |
+| pdf-text.swift reads both PDFs | macOS only | passed on the Mac 2026-10-20 |
+| skill never mentions the planted citation | pass | |
+| checker self-test | pass | |
+| offer-quick | pass | 872 words; 0 web calls; Confirm Indiana |
+| offer-intermediate | **FAIL** | 866 words; 0 web calls; Mode line and verification ending say quick, not Intermediate / quick-verified |
+| citation-quick | pass | 880 words; 0 web calls; planted cite NOT CHECKED |
+| citation-intermediate | **FAIL** | 846 words; 0 web calls; same Mode/verification fails; planted cite marked NOT CHECKED, not NOT FOUND |
+| mismatch-quick | pass | 742 words; Primary with backup notes |
+| pdf-scanned-quick, pdf-encrypted-quick | macOS only | passed on the Mac 2026-10-20 |
+
+**Diagnosis: the environment, not the skill or the checker.** Every run's first Bash call was `uname -s`, which printed `Linux`. SKILL.md's "which Jeeves is this" step treats any shell that isn't macOS as chat Jeeves. So each run printed the chat Jeeves notice and wrote a quick memo from the built-in references, even at intermediate. The skill did what it says, and the checker was right that these weren't intermediate memos. The three quick passes went down the chat path too, so they don't test full Jeeves either. The retries were stopped before they finished, because they'd repeat the same failure. Opus list-price estimate: about $1.35–2.20 per case.
+
+Also found: on a machine without `swift`, `run.py` crashes in preflight with `FileNotFoundError` rather than reporting the PDF checks as failed. This run worked around it with a stub `swift` on PATH that exits 127. Not fixed here.
+
 **Next steps:**
-1. After the weekly limit resets (Sat Oct 24, 7 PM ET), and and only if Grant accepts that each full run costs about 25–35 minutes of usage, run `python3 ~/Developer/ask-jeeves/tests/regression/run.py` in the background and check that `report.md` says PASS.
+1. The default-model run has to happen on the Mac (or another macOS host). After the weekly limit resets (Sat Oct 24, 7 PM ET), and only if Grant accepts that each full run costs about 25–35 minutes of usage, run `python3 ~/Developer/ask-jeeves/tests/regression/run.py` in the background and check that `report.md` says PASS.
 2. Then set Status to resolved, and drop this section or replace it with the result.
