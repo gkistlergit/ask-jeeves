@@ -33,3 +33,8 @@ Repo side built and live 2026-10-20: ask-jeeves#7 merged (`54eda44`), pinned wit
 - [ ] Route 1: attorney finder with a typed ZIP.
 - [x] Route 2: upload the zip on claude.ai, then from the phone app ask for ask-jeeves: it says it's chat Jeeves and writes a quick memo. Grant, 2026-10-20: zip uploaded, and chat Jeeves wrote a quick memo. (He didn't say which device he used, or whether it opened with the chat Jeeves line.)
 - [ ] Route 2: attorney finder with web search on in that chat.
+
+**Paused 2026-10-20, resume here.** Grant parked the last two checks for later. Both still open:
+1. Route 1 attorney finder: run `cd ~ && caffeinate -i claude remote-control --name jeeves` on the Mac, open `jeeves` on the phone, ask for the attorney finder, pick *Type a ZIP*, enter 46060. Check the result in `~/.claude/projects/-Users-grantkistler/*.jsonl`.
+2. Route 2 attorney finder: in a claude.ai chat with web search on, ask chat Jeeves for the finder with ZIP 46060; record what Grant reports.
+When both are in, set `Status: resolved` and update the map pointer ("Phone tests pending Grant").
