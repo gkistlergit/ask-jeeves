@@ -156,7 +156,7 @@ Load the reference files for each legal area the input touches: `references/insi
 - *On failure:*
   - Wrong claim: fix it or drop it.
   - Couldn't open the source: mark it `[n, UNVERIFIED]` with the reason.
-  - No record anywhere (official site, case.law and Google Scholar all empty): mark it `[NOT FOUND: possibly fabricated]`, keep it out of the reasoning, and list it in the Bottom line if the input relied on it. Never substitute a similar real case.
+  - No record anywhere, after the checks in `references/research-resilience.md` §6 come back empty: mark it `[NOT FOUND: possibly fabricated]`, keep it out of the reasoning, and list it in the Bottom line if the input relied on it. Never substitute a similar real case.
 - *Quick* marks input citations `[NOT CHECKED: quick mode]`.
 
 **Newer law than a reference file (intermediate and deep).** Flag it in the verification line and append it to the refresh queue as `references/research-resilience.md` §7 says.

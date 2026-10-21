@@ -312,7 +312,9 @@ def check_applied_state(memo, sinfo):
     else:
         want = prim
     fails = []
-    if want and applied != want:
+    # "Indiana" and "IN" name the same state; compare postal codes.
+    code = lambda x: STATES.get(x.strip().rstrip("."), x.strip().rstrip("."))
+    if want and code(applied) != code(want):
         fails.append(f"memo applies {applied}, but the confirmed answer was '{ans}' ({want})")
     if "backup notes" in ans.lower() and back and f"backup: {back}" not in mode.replace("**", ""):
         fails.append(f"answer kept {back} as backup, but the Mode line lacks 'backup: {back}'")
