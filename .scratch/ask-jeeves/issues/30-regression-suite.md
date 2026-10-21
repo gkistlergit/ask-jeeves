@@ -23,7 +23,7 @@ Done when the suite runs with one command and passes on main, fails on a deliber
 
 ## Answer
 
-Built and live 2026-10-20. ask-jeeves#8 merged (`a0929b2`), claude-global-settings#77 pins it, and `vendor/ask-jeeves` is reinstalled at that sha. Usage-limit handling is in a follow-up PR.
+Built and live 2026-10-20. ask-jeeves#8 merged (`a0929b2`), claude-global-settings#77 pins it, and `vendor/ask-jeeves` is reinstalled at that sha. Usage-limit handling and this Answer landed in ask-jeeves#9.
 
 - **One command:** `python3 tests/regression/run.py` (`tests/regression/README.md`). Each case runs the skill headless with `claude -p`, as `/jeeves-under-test`, copied from the checkout under test. The run uses the signed-in account and no API key. Questions print as `QUESTION:` / `OPTIONS:`, and each answer comes from a scripted `SCRIPTED ANSWER:` list of fictional fixture facts.
 - **Cases:** quick and intermediate on `sample-offer-letter.md`, and the same on `offer-letter-with-citation.md`. The mismatch flow at quick, plus the scanned and encrypted PDFs.
