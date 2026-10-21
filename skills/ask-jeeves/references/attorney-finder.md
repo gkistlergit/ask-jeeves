@@ -28,7 +28,7 @@ Ask one AskUserQuestion, **multi-select**. Search each chosen location separatel
 **Home.** The skill stores the home location as "Home: Noblesville, IN 46060" only. A street address never goes into skill files, URLs, queries or saved files. [cite: ticket 15]
 
 **Live location, in order:**
-1. **Consent.** Ask: may I check your location? Say Jeeves keeps only city and ZIP, and that the result enters this conversation, which goes to Anthropic. Ask every time; never assume a past yes. [cite: research 07 §4; ticket 15]
+1. **Consent.** Ask: may I check your location? Say Jeeves keeps only city and ZIP, and that the result enters this conversation, which goes to Anthropic. Also say it reads **this Mac's** location: if Grant is on his phone away from the Mac (Remote Control or claude.ai/code), he should type his ZIP or the city his phone shows instead. Ask every time; never assume a past yes. [cite: research 07 §4; ticket 15; ticket 31]
 2. **Device (Jeeves Location app).** Run the bundled helper:
    ```bash
    <skill folder>/scripts/jeeves-location/run.sh
