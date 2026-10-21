@@ -31,5 +31,5 @@ Repo side built and live 2026-10-20: ask-jeeves#7 merged (`54eda44`), pinned wit
 **Phone tests (Grant), pending:**
 - [ ] Route 1: quick memo from the phone over Remote Control: `/ask-jeeves` runs and the questions render on the phone.
 - [ ] Route 1: attorney finder with a typed ZIP.
-- [ ] Route 2: upload the zip on claude.ai, then from the phone app ask for ask-jeeves: it says it's chat Jeeves and writes a quick memo.
+- [x] Route 2: upload the zip on claude.ai, then from the phone app ask for ask-jeeves: it says it's chat Jeeves and writes a quick memo. Grant, 2026-10-20: zip uploaded, and chat Jeeves wrote a quick memo. (He didn't say which device he used, or whether it opened with the chat Jeeves line.)
 - [ ] Route 2: attorney finder with web search on in that chat.
