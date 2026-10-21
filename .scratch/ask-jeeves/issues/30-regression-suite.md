@@ -1,6 +1,6 @@
 # Regression suite for the fixtures
 Type: task
-Status: resolved
+Status: claimed
 Blocked by:
 
 ## Question
@@ -53,3 +53,16 @@ Built and live 2026-10-20. ask-jeeves#8 merged (`a0929b2`), claude-global-settin
 - **Refresh wiring:** `docs/refresh-procedure.md` step 5 runs the suite before every refresh or state-card PR and pastes `report.md` into the body. A suite that fails or doesn't run never merges under the standing go. Steps 6–9 are renumbered. All three scheduled-task prompts now say so; the January prompt also covers state cards now, closing ticket 29's gap.
 - **Cost:** a full run is about 7–10 model runs, 25–35 minutes of the account's usage. Claude Code's list-price estimate is about $5–6 per quick case. Today's build ran about 22 model runs and hit the usage limit. Whether that's acceptable usage for each refresh is Grant's call.
 
+## Paused, resume here (2026-10-20)
+
+Paused at Grant's request. Nothing is mid-flight.
+
+**Done:** ask-jeeves#8 (`a0929b2`) and #9 (`7fab519`) are merged. #8 is pinned by claude-global-settings#77, and `vendor/ask-jeeves` is reinstalled at `a0929b2`, drift clean. #9 changes only tests and docs, so it needs no pin. The three scheduled-task prompts are updated.
+
+**Passed:** on the branch (`1bee042`, same skill tree as main), 7/7 cases and 5/5 free checks. The broken copy failed as intended. On main `a0929b2`, the free checks pass.
+
+**Not yet confirmed:** a fresh model run on main. Every case hit "out of usage credits", which now reads NOT RUN.
+
+**Next steps:**
+1. Once the account's usage resets, and only if Grant accepts that each full run costs about 25–35 minutes of usage, run `python3 ~/Developer/ask-jeeves/tests/regression/run.py` in the background and check that `report.md` says PASS.
+2. Then set Status to resolved, and drop this section or replace it with the result.
