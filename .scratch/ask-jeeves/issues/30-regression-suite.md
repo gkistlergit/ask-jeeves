@@ -1,6 +1,6 @@
 # Regression suite for the fixtures
 Type: task
-Status: open
+Status: claimed
 Blocked by:
 
 ## Question
