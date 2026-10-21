@@ -22,6 +22,7 @@ import argparse
 import concurrent.futures as cf
 import json
 import os
+import platform
 import re
 import shutil
 import subprocess
@@ -72,9 +73,9 @@ MISMATCH_STATE = {"states": {"IN", "SC"}, "confidence": "Uncertain"}
 # The planted case in offer-letter-with-citation.md. If the skill names it, runs know it's fake.
 PLANTED_TELLS = ["Hartwell", "258 N.E.3d"]
 
+# No case runs sample-offer-letter.md: offer-letter-with-citation.md is the same letter plus the planted
+# cite, with the same answers, so the citation cases run every check an offer case would.
 CASES = [
-    {"id": "offer-quick", "fixture": "sample-offer-letter.md", "depth": "quick", "state": "IN", **OFFER},
-    {"id": "offer-intermediate", "fixture": "sample-offer-letter.md", "depth": "intermediate", "state": "IN", **OFFER},
     {"id": "citation-quick", "fixture": "offer-letter-with-citation.md", "depth": "quick", "state": "IN",
      "planted": "Hartwell", **OFFER},
     {"id": "citation-intermediate", "fixture": "offer-letter-with-citation.md", "depth": "intermediate", "state": "IN",
@@ -174,6 +175,9 @@ def preflight(repo, out):
     ref = pdf_words((repo / "fixtures/mismatch-contract.md").read_text())
     for name in ("scanned-contract.pdf", "encrypted-contract.pdf"):
         dest = out / "pdf" / name.split(".")[0]
+        if not shutil.which("swift"):
+            results.append((f"pdf-text.swift reads {name}", ["swift not found; this check needs macOS"]))
+            continue
         p = subprocess.run(["swift", str(repo / "skills/ask-jeeves/scripts/pdf-text.swift"),
                             str(repo / "fixtures" / name), str(dest)], capture_output=True, text=True)
         f = []
@@ -295,6 +299,10 @@ def main():
         sys.exit(0 if ok else 1)
     if not shutil.which("claude"):
         sys.exit("claude CLI not found on PATH")
+    if platform.system() != "Darwin":
+        # SKILL.md treats a shell that isn't macOS as chat Jeeves (quick only), so intermediate cases can't pass.
+        sys.exit(f"model cases need macOS: on {platform.system()} the skill runs as chat Jeeves. "
+                 "Run the suite on the Mac, or use --preflight-only or --check-only here.")
 
     sb = build_sandbox(repo, out)
     print(f"Running {len(cases)} cases, {a.jobs} at a time. Traces in {out}", flush=True)

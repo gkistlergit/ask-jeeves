@@ -14,13 +14,13 @@ Each case runs the skill headless with `claude -p "/jeeves-under-test …"`. `ru
 
 | Case | Fixture | Depth | Also checks |
 |---|---|---|---|
-| `offer-quick` | `sample-offer-letter.md` | quick | no web calls |
-| `offer-intermediate` | `sample-offer-letter.md` | intermediate | at least 1 web call, at most 8 WebSearch |
-| `citation-quick` | `offer-letter-with-citation.md` | quick | planted case marked NOT CHECKED |
-| `citation-intermediate` | `offer-letter-with-citation.md` | intermediate | planted case marked NOT FOUND, never cited bare, listed in Bottom line |
+| `citation-quick` | `offer-letter-with-citation.md` | quick | no web calls; planted case marked NOT CHECKED |
+| `citation-intermediate` | `offer-letter-with-citation.md` | intermediate | at least 1 web call, at most 8 WebSearch; planted case marked NOT FOUND, never cited bare, listed in Bottom line |
 | `mismatch-quick` | `mismatch-contract.md` | quick | primary and backup are IN and SC, Confidence Uncertain |
 | `pdf-scanned-quick` | `scanned-contract.pdf` | quick | read through `scripts/pdf-text.swift`; mismatch checks |
 | `pdf-encrypted-quick` | `encrypted-contract.pdf` | quick | read through `scripts/pdf-text.swift`, or by Read when Read opens it (it has an empty user password); mismatch checks |
+
+`sample-offer-letter.md` has no case of its own. `offer-letter-with-citation.md` is the same letter plus one sentence with the planted case, and its cases use the same answers, so they run every check an offer case would. Running the plain letter too cost two model runs, one of them intermediate.
 
 Every case also checks the memo against `templates/memo.md`: every section in order, the disclaimer, the header lines with depth and label, the Bottom line goal verdict, the three Recommendation groups, the Creative option labels, at most 6 risks, the verification ending, and 600–900 words of prose. It also fails a case whose planted citation shows up bare in a run of support cites, and checks that the state confirmation (candidate block, then `OPTIONS: Confirm …`, then the answer) comes before any research that depends on the state: a WebSearch, WebFetch or subagent call, or a read of a state card. Headless runs often load the built-in area files before step 3; those hold federal, IN and SC law whichever state is picked, so reading them early doesn't count. The memo's Mode line must then use the confirmed state, and keep the backup when the answer kept one.
 
@@ -32,15 +32,17 @@ Free checks run first and need no model:
 
 ## Options
 
-- `--cases offer-quick,citation-quick` runs a subset. `--jobs N` sets how many run at once. `--retries 0` turns off the re-run.
+- `--cases citation-quick,mismatch-quick` runs a subset. `--jobs N` sets how many run at once. `--retries 0` turns off the re-run.
 - `--repo <path>` tests another checkout, such as a refresh worktree or a deliberately broken copy.
 - `--check-only <out folder>` re-checks saved traces without running the model.
 - `--preflight-only` runs only the free checks, in about 5 seconds.
 
+Model cases need macOS. On any other system SKILL.md treats the run as chat Jeeves, which writes quick memos only, so the intermediate cases can't pass. `run.py` stops before the first model run there instead of spending usage. A cloud run on Linux on 2026-10-21 found this. `--preflight-only` and `--check-only` work anywhere; without `swift`, the two PDF checks fail with "needs macOS".
+
 ## Free to run, and safe
 
 - Runs use the signed-in Claude account. `run.py` removes `ANTHROPIC_API_KEY` from each run's environment. The `cost_usd` figure in a trace is the list-price estimate Claude Code reports, not a charge. Intermediate cases use WebSearch and WebFetch; PDFs use local `swift` and `tesseract`.
-- A full run is about 7–10 model runs, 25–35 minutes of the account's usage. When the account hits a usage limit, the case reads **NOT RUN** and the suite stops without retrying. A refresh PR then waits for Grant, the same as a failing suite.
+- A full run is 5 cases, about 5–7 model runs with retries, down from 7–10 before the offer cases were dropped. When the account hits a usage limit, the case reads **NOT RUN** and the suite stops without retrying. A refresh PR then waits for Grant, the same as a failing suite.
 - The fixtures and scripted answers are fictional. Keep them that way: this repo is public.
 - Runs may not use Write or Edit, and the harness tells them to skip the run log and refresh queue. A case fails if any tool call other than Read names `~/.claude/ask-jeeves-run-log.md` or `~/.claude/ask-jeeves-refresh-queue.md`; the suite never rewrites those files itself, since a real Jeeves run may be logging at the same time.
 
