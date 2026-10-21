@@ -56,7 +56,7 @@ A citation earns `[NOT FOUND: possibly fabricated]` only after all of these come
 1. **the court's own opinion search**, for example `public.courts.in.gov/Decisions/api/Document/Opinion?Id=<id>` or the Indiana opinions search, sccourts.org opinions, or the circuit's opinion page;
 2. **case.law**, which only covers older volumes. For anything reported after about 2018, its silence proves nothing;
 3. **one WebSearch** for the exact reporter cite in quotes, plus one for the case name with the court and year;
-4. a check that the reporter volume and page fit the stated year and court. For example, look at what the cited page actually holds, the way 258 N.E.3d 412 turned out to hold Ohio entries.
+4. a check that the reporter volume and page fit the stated year and court. For example, look at what the cited page actually holds: a made-up cite often lands on a real page that holds another case, or another state's entries.
 
 Google Scholar blocks WebFetch. Use it only through WebSearch result snippets. If steps 1 to 3 can't be reached (site down, CAPTCHA, search limit hit), mark the citation `[UNVERIFIED: could not check]`, never NOT FOUND. A real case must never be called fake because the tools failed.
 
@@ -76,4 +76,6 @@ The line names the law only: never a party, employer, person or any text from th
 
 ## Changes since last as-of
 
-None yet. A refresh fills this in: date, each change tagged *substance* or *fix*, and its source (`docs/refresh-procedure.md`).
+### 2026-10-20 ticket 30
+
+- [fix] §6 example made generic: it named the regression fixture's planted citation, which told test runs it was fake (`tests/regression/README.md`)
