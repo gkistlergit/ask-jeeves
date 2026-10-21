@@ -56,8 +56,6 @@ An `ask-jeeves` skill whose source lives in this repo at `skills/ask-jeeves/` (G
 
 ## Not yet specified
 
-- **claude.ai chat availability.** Whether to also package a zip for claude.ai or Desktop chat.
-- **Test-case growth.** Whether the fixtures become a re-runnable regression suite.
 
 ## Out of scope
 
