@@ -75,6 +75,7 @@ Earlier input: <areas researched against an earlier input, and which were re-run
 ```
 
 ## Citation forms
-- In-line: `[n]`. When unverified: `[n, UNVERIFIED]`. When it doesn't exist: `[n, NOT FOUND]`, which is never used as support.
+- In-line: `[n]`. When unverified: `[n, UNVERIFIED]`. When it doesn't exist: `[n, NOT FOUND]`, which is never used as support. An input citation quick mode didn't check: `[n, NOT CHECKED]`.
+- Every in-line use of a NOT FOUND or NOT CHECKED source carries its label, in the Risks table too. Never put it in a run of support cites such as `[8][9][12]`: cite the rule from other sources, and mention the input's case separately.
 - Indiana Code: `IC 24-2-3-2 (2026 Ind. Code, official IGA edition)`.
 - Quotes stay under 15 words.

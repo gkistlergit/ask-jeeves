@@ -165,7 +165,7 @@ Load the reference files for each legal area the input touches: `references/insi
 
 ### 5. Write the memo
 
-Fill `templates/memo.md` exactly: every section at every depth, 600–900 words of prose. What counts as prose is defined in the template. Draft long, then cut to the cap; drafts typically run 1,200–1,400 words.
+Fill `templates/memo.md` exactly: every section at every depth, 600–900 words of prose. What counts as prose is defined in the template. Draft long, then cut to the cap; drafts typically run 1,200–1,400 words. Before showing the memo, count it with `python3 scripts/prose-words.py`, passing the memo on stdin in a heredoc (nothing saved), and cut or add until it fits. Chat Jeeves counts by hand.
 - **End goal drives the memo.** The goal line goes in the header. Bottom line opens with whether the goal looks reachable (Likely, Uncertain or Unlikely), with the reason. **Path to your goal** gives the ordered steps that get there. Risks that threaten the goal rank first and are tagged *(goal)*. Each recommendation and creative option should move Grant toward the goal. Where the goal can't be reached lawfully, say so plainly and give the closest lawful alternative.
 - **Likelihood:** Low, Medium or High, with a few words of reason.
 - **Recommendations:** grouped Before signing / On the job / When leaving. Add "Talk to a licensed attorney before you act" to any item with a hire trigger (once under the group heading when every item in the group has one): a High risk, possible criminal exposure (trade-secret theft, computer trespass, CFAA), an Uncertain state or a backup state, a government agency involved, or a signing or resignation within 14 days.
