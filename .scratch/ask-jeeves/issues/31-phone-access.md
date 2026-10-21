@@ -29,7 +29,7 @@ Repo side built and live 2026-10-20: ask-jeeves#7 merged (`54eda44`), pinned wit
 - **Zip:** `harness build-zips` writes `~/Developer/claude-global-settings/build/claude-ai/ask-jeeves.zip`: 134 KB, 19 files, the skill folder only (SKILL.md, references, state-card template, memo template, the Mac-only scripts). No `Sources/`. Frontmatter rewritten for claude.ai (`disable-model-invocation` dropped, "Only use when the user explicitly asks for this skill by name." appended). The only personal fact is the home city and ZIP, Noblesville, IN 46060, which this repo's CLAUDE.md already allows in public. No employer, email or street address.
 
 **Phone tests (Grant), pending:**
-- [ ] Route 1: quick memo from the phone over Remote Control: `/ask-jeeves` runs and the questions render on the phone.
+- [ ] Route 1: quick memo from the phone over Remote Control: `/ask-jeeves` runs and the questions render on the phone. Partial, 2026-10-20 (Grant's iPhone, session `jeeves`, transcript checked): `/ask-jeeves run a quick memo` loaded the skill, printed the disclaimer, ran the `uname -s` check (full Jeeves) and asked for input, goal and side. A bare `46060` got the right answer: Indiana as the candidate state, plus a request for the missing input. No memo yet.
 - [ ] Route 1: attorney finder with a typed ZIP.
 - [x] Route 2: upload the zip on claude.ai, then from the phone app ask for ask-jeeves: it says it's chat Jeeves and writes a quick memo. Grant, 2026-10-20: zip uploaded, and chat Jeeves wrote a quick memo. (He didn't say which device he used, or whether it opened with the chat Jeeves line.)
 - [ ] Route 2: attorney finder with web search on in that chat.
