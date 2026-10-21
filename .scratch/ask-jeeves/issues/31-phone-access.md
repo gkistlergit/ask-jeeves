@@ -1,6 +1,6 @@
 # Use Jeeves from Grant's phone
 Type: task
-Status: open
+Status: claimed
 Blocked by:
 
 ## Question
