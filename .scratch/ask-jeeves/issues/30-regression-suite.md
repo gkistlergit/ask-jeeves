@@ -63,6 +63,8 @@ Paused at Grant's request. Nothing is mid-flight.
 
 **Not yet confirmed:** a fresh model run on main. Every case hit "out of usage credits", which now reads NOT RUN.
 
+**Sonnet run (2026-10-20, Grant's go):** 6/7 passed, 2 of them on a retry after the first run showed no `Candidate state:` block. citation-intermediate failed: the fake cite was marked UNVERIFIED after a guessed court URL returned a 404. The suite also flagged "Indiana" vs "IN" as a mismatch. Both are fixed in ask-jeeves#10 (`dafb351`, pinned by claude-global-settings#78, reinstalled). citation-intermediate then re-ran on Sonnet and passed.
+
 **Next steps:**
-1. Once the account's usage resets, and only if Grant accepts that each full run costs about 25–35 minutes of usage, run `python3 ~/Developer/ask-jeeves/tests/regression/run.py` in the background and check that `report.md` says PASS.
+1. After the weekly limit resets (Sat Oct 24, 7 PM ET), and and only if Grant accepts that each full run costs about 25–35 minutes of usage, run `python3 ~/Developer/ask-jeeves/tests/regression/run.py` in the background and check that `report.md` says PASS.
 2. Then set Status to resolved, and drop this section or replace it with the result.
