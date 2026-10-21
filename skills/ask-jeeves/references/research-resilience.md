@@ -58,7 +58,15 @@ A citation earns `[NOT FOUND: possibly fabricated]` only after all of these come
 3. **one WebSearch** for the exact reporter cite in quotes, plus one for the case name with the court and year;
 4. a check that the reporter volume and page fit the stated year and court. For example, look at what the cited page actually holds: a made-up cite often lands on a real page that holds another case, or another state's entries.
 
-Google Scholar blocks WebFetch. Use it only through WebSearch result snippets. If steps 1 to 3 can't be reached (site down, CAPTCHA, search limit hit), mark the citation `[UNVERIFIED: could not check]`, never NOT FOUND. A real case must never be called fake because the tools failed.
+Google Scholar blocks WebFetch. Use it only through WebSearch result snippets.
+
+**Reached vs. unreachable.** A step is reached when any attempt at it returns a page, including an empty result list. A 404 on a guessed URL is not a failed step: try the documented search instead. For Indiana that is `public.courts.in.gov/Decisions/api/Search?query=<case name>`. For a volume that case.law doesn't hold (after about 2018), step 2 counts as checked, with silence proving nothing. Step 4 then rests on the reporter-cite search snippets.
+
+**The label follows the checks:**
+- Every reached step comes back empty, and the volume and page don't fit, or show another case: `[NOT FOUND: possibly fabricated]`.
+- Only a step that could not be reached at all, after the documented URL (site down, CAPTCHA, search limit hit), gives `[UNVERIFIED: could not check]`. Name the step that failed.
+
+A real case must never be called fake because the tools failed. A fake one must not hide behind UNVERIFIED once the checks have run.
 
 ## 7. Age rule and the refresh queue
 
