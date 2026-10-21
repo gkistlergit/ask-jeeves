@@ -40,6 +40,7 @@ Free checks run first and need no model:
 ## Free to run, and safe
 
 - Runs use the signed-in Claude account. `run.py` removes `ANTHROPIC_API_KEY` from each run's environment. The `cost_usd` figure in a trace is the list-price estimate Claude Code reports, not a charge. Intermediate cases use WebSearch and WebFetch; PDFs use local `swift` and `tesseract`.
+- A full run is about 7–10 model runs, 25–35 minutes of the account's usage. When the account hits a usage limit, the case reads **NOT RUN** and the suite stops without retrying. A refresh PR then waits for Grant, the same as a failing suite.
 - The fixtures and scripted answers are fictional. Keep them that way: this repo is public.
 - Runs may not use Write or Edit, and the harness tells them to skip the run log and refresh queue. A case fails if any tool call other than Read names `~/.claude/ask-jeeves-run-log.md` or `~/.claude/ask-jeeves-refresh-queue.md`; the suite never rewrites those files itself, since a real Jeeves run may be logging at the same time.
 

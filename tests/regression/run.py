@@ -235,7 +235,8 @@ def report(out, pre, rows, repo, rechecked=False):
     dirty = subprocess.run(["git", "-C", str(repo), "status", "--porcelain", "skills", "fixtures"],
                            capture_output=True, text=True).stdout.strip()
     ok = all(not f for _, f in pre) and all(not r[1] for r in rows)
-    lines = [f"### ask-jeeves regression suite: {'PASS' if ok else 'FAIL'}",
+    not_run = any(r[2].get("not_run") for r in rows)
+    lines = [f"### ask-jeeves regression suite: {'PASS' if ok else 'NOT RUN (account limit)' if not_run else 'FAIL'}",
              (f"Re-checked saved traces in `{out}` with the checker at `{head or 'unknown'}`, {date.today()}." if rechecked else
               f"Skill at `{head or 'unknown'}`{' (uncommitted changes in skills/ or fixtures/)' if dirty else ''}, run {date.today()}."), "",
              "| Check | Result | Detail |", "|---|---|---|"]
@@ -246,7 +247,7 @@ def report(out, pre, rows, repo, rechecked=False):
         detail = (f"{info.get('words', 0)} words; {t.get('WebSearch', 0)} searches, {t.get('WebFetch', 0)} fetches; "
                   f"state answer: {info.get('state_answer') or 'none'}; {info.get('seconds', 0)}s")
         notes = [f"**{x}**" for x in f] + info.get("earlier", [])
-        verdict = "**FAIL**" if f else ("pass on retry" if info.get("earlier") else "pass")
+        verdict = "**NOT RUN**" if info.get("not_run") else "**FAIL**" if f else ("pass on retry" if info.get("earlier") else "pass")
         lines.append(f"| {cid} | {verdict} | {detail}{'<br>' + '<br>'.join(notes) if notes else ''} |")
     text = "\n".join(lines) + "\n"
     (out / "report.md").write_text(text)
@@ -308,6 +309,9 @@ def main():
                 f, info = evaluate(case, out / cid / sub, err)
                 results[cid].append((sub, f, info))
                 print(f"  {cid}{' ' + sub if sub else ''}: {'pass' if not f else 'FAIL'} in {secs}s", flush=True)
+        if any(r[-1][2].get("not_run") for r in results.values()):
+            print("  account limit hit: stopping, no retries", flush=True)
+            break
         todo = [(c, f"retry{attempt + 1}") for c in cases if results[c["id"]][-1][1]]
         if not todo:
             break

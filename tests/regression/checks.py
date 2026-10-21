@@ -364,6 +364,10 @@ def check_case(case, trace_path):
     memo = extract_memo(st, res.get("result", ""))
     counts = tool_counts(st)
     fails = []
+    limit = re.search(r"out of usage credits|usage limit|rate limit", str(res.get("result", "")), re.I)
+    if res.get("is_error") and limit:
+        # The account hit a limit before the skill ran: nothing about the skill was tested.
+        return [f"NOT RUN: account limit ({limit.group(0)}); re-run when usage resets"], {"not_run": True}, ""
     if not events:
         fails.append("empty trace (claude -p produced no events)")
     if res.get("is_error"):
